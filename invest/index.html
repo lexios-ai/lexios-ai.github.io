@@ -958,52 +958,60 @@
                 padding: 1.5rem;
             }
 
-            /* Table wrapper for horizontal scrolling */
-            .data-table {
-                display: block;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                border: 1px solid var(--border-color);
-                border-radius: 12px;
-            }
-
+            /* Convert tables to card layout on mobile */
             .data-table table {
-                width: 100%;
-                min-width: 600px;
-                border-collapse: separate;
-                border-spacing: 0;
-                margin: 0;
-                background: var(--white);
+                border: none;
             }
 
-            .data-table th {
-                font-size: 0.75rem;
-                padding: 0.875rem 0.75rem;
-                white-space: nowrap;
+            .data-table thead {
+                display: none;
+            }
+
+            .data-table tbody {
+                display: block;
+            }
+
+            .data-table tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                background: var(--white);
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                padding: 1rem;
+            }
+
+            .data-table tr:hover {
+                background: var(--white);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             }
 
             .data-table td {
-                font-size: 0.8125rem;
-                padding: 0.875rem 0.75rem;
-                white-space: nowrap;
+                display: block;
+                text-align: left;
+                padding: 0.5rem 0;
+                border: none;
+                font-size: 0.9375rem;
             }
 
-            /* Table scroll indicator */
-            .data-table::after {
-                content: '→ Scroll';
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(98, 182, 203, 0.9);
-                color: white;
-                padding: 0.375rem 0.75rem;
-                border-radius: 4px;
+            .data-table td::before {
+                content: attr(data-label);
+                display: block;
+                font-weight: 700;
+                color: var(--text-dark);
                 font-size: 0.75rem;
-                font-weight: 600;
-                pointer-events: none;
-                opacity: 0;
-                transition: opacity 0.3s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.25rem;
+            }
+
+            .data-table td[rowspan] {
+                display: block;
+                padding: 0.5rem 0;
+            }
+
+            .data-table .highlight-row {
+                background: rgba(98, 182, 203, 0.1) !important;
+                border-color: var(--technical-cyan);
             }
 
             .return-grid {
@@ -1174,18 +1182,18 @@
                 font-size: 2.25rem;
             }
 
-            .data-table th {
-                padding: 0.75rem 0.5rem;
-                font-size: 0.6875rem;
+            .data-table tr {
+                padding: 0.875rem;
+                margin-bottom: 1.25rem;
             }
 
             .data-table td {
-                padding: 0.75rem 0.5rem;
-                font-size: 0.75rem;
+                padding: 0.375rem 0;
+                font-size: 0.875rem;
             }
 
-            .data-table table {
-                min-width: 500px;
+            .data-table td::before {
+                font-size: 0.6875rem;
             }
 
             .return-card {
@@ -1567,28 +1575,28 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Construction Software</td>
-                                <td>$10.96B</td>
-                                <td>$18.51B</td>
-                                <td>10.8%</td>
+                                <td data-label="Market Segment">Construction Software</td>
+                                <td data-label="Current Size">$10.96B</td>
+                                <td data-label="2030 Projection">$18.51B</td>
+                                <td data-label="CAGR">10.8%</td>
                             </tr>
                             <tr>
-                                <td>AI in Construction</td>
-                                <td>$2.9B</td>
-                                <td>$17B</td>
-                                <td>34.2%</td>
+                                <td data-label="Market Segment">AI in Construction</td>
+                                <td data-label="Current Size">$2.9B</td>
+                                <td data-label="2030 Projection">$17B</td>
+                                <td data-label="CAGR">34.2%</td>
                             </tr>
                             <tr>
-                                <td>Document Management</td>
-                                <td>$2.4B</td>
-                                <td>$4.8B</td>
-                                <td>14.9%</td>
+                                <td data-label="Market Segment">Document Management</td>
+                                <td data-label="Current Size">$2.4B</td>
+                                <td data-label="2030 Projection">$4.8B</td>
+                                <td data-label="CAGR">14.9%</td>
                             </tr>
                             <tr class="highlight-row">
-                                <td><strong>Total Addressable</strong></td>
-                                <td><strong>$16.26B</strong></td>
-                                <td><strong>$40.31B</strong></td>
-                                <td><strong>19.9%</strong></td>
+                                <td data-label="Market Segment"><strong>Total Addressable</strong></td>
+                                <td data-label="Current Size"><strong>$16.26B</strong></td>
+                                <td data-label="2030 Projection"><strong>$40.31B</strong></td>
+                                <td data-label="CAGR"><strong>19.9%</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1649,34 +1657,34 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Cost (140 pages)</strong></td>
-                                <td>$4.08</td>
-                                <td>$2,000</td>
-                                <td style="color: var(--success-green); font-weight: 600;">99.8% reduction</td>
+                                <td data-label="Metric"><strong>Cost (140 pages)</strong></td>
+                                <td data-label="Lexios AI">$4.08</td>
+                                <td data-label="Manual Process">$2,000</td>
+                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">99.8% reduction</td>
                             </tr>
                             <tr>
-                                <td><strong>Processing Time</strong></td>
-                                <td>7 minutes</td>
-                                <td>40 hours</td>
-                                <td style="color: var(--success-green); font-weight: 600;">99.7% faster</td>
+                                <td data-label="Metric"><strong>Processing Time</strong></td>
+                                <td data-label="Lexios AI">7 minutes</td>
+                                <td data-label="Manual Process">40 hours</td>
+                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">99.7% faster</td>
                             </tr>
                             <tr>
-                                <td><strong>Accuracy</strong></td>
-                                <td>90-95%</td>
-                                <td>95-98%</td>
-                                <td style="color: var(--success-green); font-weight: 600;">Comparable</td>
+                                <td data-label="Metric"><strong>Accuracy</strong></td>
+                                <td data-label="Lexios AI">90-95%</td>
+                                <td data-label="Manual Process">95-98%</td>
+                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">Comparable</td>
                             </tr>
                             <tr>
-                                <td><strong>Scalability</strong></td>
-                                <td>Unlimited</td>
-                                <td>Limited</td>
-                                <td style="color: var(--success-green); font-weight: 600;">∞</td>
+                                <td data-label="Metric"><strong>Scalability</strong></td>
+                                <td data-label="Lexios AI">Unlimited</td>
+                                <td data-label="Manual Process">Limited</td>
+                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">∞</td>
                             </tr>
                             <tr>
-                                <td><strong>Consistency</strong></td>
-                                <td>99.99%</td>
-                                <td>Variable</td>
-                                <td style="color: var(--success-green); font-weight: 600;">Deterministic</td>
+                                <td data-label="Metric"><strong>Consistency</strong></td>
+                                <td data-label="Lexios AI">99.99%</td>
+                                <td data-label="Manual Process">Variable</td>
+                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">Deterministic</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1747,39 +1755,39 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Year 1</td>
-                                <td>15</td>
-                                <td>$600K</td>
-                                <td>—</td>
-                                <td>-$1.5M</td>
+                                <td data-label="Year">Year 1</td>
+                                <td data-label="Customers">15</td>
+                                <td data-label="ARR">$600K</td>
+                                <td data-label="Growth">—</td>
+                                <td data-label="Cash Flow">-$1.5M</td>
                             </tr>
                             <tr>
-                                <td>Year 2</td>
-                                <td>50</td>
-                                <td>$5M</td>
-                                <td>733%</td>
-                                <td>-$500K</td>
+                                <td data-label="Year">Year 2</td>
+                                <td data-label="Customers">50</td>
+                                <td data-label="ARR">$5M</td>
+                                <td data-label="Growth">733%</td>
+                                <td data-label="Cash Flow">-$500K</td>
                             </tr>
                             <tr>
-                                <td>Year 3</td>
-                                <td>125</td>
-                                <td>$18M</td>
-                                <td>260%</td>
-                                <td>+$3M</td>
+                                <td data-label="Year">Year 3</td>
+                                <td data-label="Customers">125</td>
+                                <td data-label="ARR">$18M</td>
+                                <td data-label="Growth">260%</td>
+                                <td data-label="Cash Flow">+$3M</td>
                             </tr>
                             <tr>
-                                <td>Year 4</td>
-                                <td>250</td>
-                                <td>$40M</td>
-                                <td>122%</td>
-                                <td>+$12M</td>
+                                <td data-label="Year">Year 4</td>
+                                <td data-label="Customers">250</td>
+                                <td data-label="ARR">$40M</td>
+                                <td data-label="Growth">122%</td>
+                                <td data-label="Cash Flow">+$12M</td>
                             </tr>
                             <tr class="highlight-row">
-                                <td>Year 5</td>
-                                <td>400</td>
-                                <td>$60M</td>
-                                <td>50%</td>
-                                <td>+$20M</td>
+                                <td data-label="Year">Year 5</td>
+                                <td data-label="Customers">400</td>
+                                <td data-label="ARR">$60M</td>
+                                <td data-label="Growth">50%</td>
+                                <td data-label="Cash Flow">+$20M</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1909,39 +1917,39 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>PlanGrid</td>
-                                <td>Autodesk</td>
-                                <td>$875M</td>
-                                <td>~20x</td>
-                                <td>2018</td>
+                                <td data-label="Company">PlanGrid</td>
+                                <td data-label="Acquirer">Autodesk</td>
+                                <td data-label="Exit Value">$875M</td>
+                                <td data-label="Revenue Multiple">~20x</td>
+                                <td data-label="Year">2018</td>
                             </tr>
                             <tr>
-                                <td>BuildingConnected</td>
-                                <td>Autodesk</td>
-                                <td>$275M</td>
-                                <td>~15x</td>
-                                <td>2018</td>
+                                <td data-label="Company">BuildingConnected</td>
+                                <td data-label="Acquirer">Autodesk</td>
+                                <td data-label="Exit Value">$275M</td>
+                                <td data-label="Revenue Multiple">~15x</td>
+                                <td data-label="Year">2018</td>
                             </tr>
                             <tr>
-                                <td>Pype</td>
-                                <td>Autodesk</td>
-                                <td>$100M</td>
-                                <td>~10x</td>
-                                <td>2021</td>
+                                <td data-label="Company">Pype</td>
+                                <td data-label="Acquirer">Autodesk</td>
+                                <td data-label="Exit Value">$100M</td>
+                                <td data-label="Revenue Multiple">~10x</td>
+                                <td data-label="Year">2021</td>
                             </tr>
                             <tr>
-                                <td>Assemble Systems</td>
-                                <td>Autodesk</td>
-                                <td>$60M</td>
-                                <td>~12x</td>
-                                <td>2018</td>
+                                <td data-label="Company">Assemble Systems</td>
+                                <td data-label="Acquirer">Autodesk</td>
+                                <td data-label="Exit Value">$60M</td>
+                                <td data-label="Revenue Multiple">~12x</td>
+                                <td data-label="Year">2018</td>
                             </tr>
                             <tr>
-                                <td>Bridgit</td>
-                                <td>Procore</td>
-                                <td>$35M</td>
-                                <td>~8x</td>
-                                <td>2022</td>
+                                <td data-label="Company">Bridgit</td>
+                                <td data-label="Acquirer">Procore</td>
+                                <td data-label="Exit Value">$35M</td>
+                                <td data-label="Revenue Multiple">~8x</td>
+                                <td data-label="Year">2022</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2086,34 +2094,34 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>CTO/Co-founder</strong></td>
-                                <td>Q1 2026</td>
-                                <td>Enterprise SaaS, AI/ML expertise</td>
-                                <td>15-20%</td>
+                                <td data-label="Role"><strong>CTO/Co-founder</strong></td>
+                                <td data-label="Timeline">Q1 2026</td>
+                                <td data-label="Key Requirements">Enterprise SaaS, AI/ML expertise</td>
+                                <td data-label="Equity">15-20%</td>
                             </tr>
                             <tr>
-                                <td>Senior Backend Engineer</td>
-                                <td>Q2 2026</td>
-                                <td>TypeScript, API development</td>
-                                <td>1-2%</td>
+                                <td data-label="Role">Senior Backend Engineer</td>
+                                <td data-label="Timeline">Q2 2026</td>
+                                <td data-label="Key Requirements">TypeScript, API development</td>
+                                <td data-label="Equity">1-2%</td>
                             </tr>
                             <tr>
-                                <td>AI/ML Engineer</td>
-                                <td>Q2 2026</td>
-                                <td>Vision models, PyTorch</td>
-                                <td>1-2%</td>
+                                <td data-label="Role">AI/ML Engineer</td>
+                                <td data-label="Timeline">Q2 2026</td>
+                                <td data-label="Key Requirements">Vision models, PyTorch</td>
+                                <td data-label="Equity">1-2%</td>
                             </tr>
                             <tr>
-                                <td>Developer Relations</td>
-                                <td>Q3 2026</td>
-                                <td>Technical writing, community</td>
-                                <td>0.5-1%</td>
+                                <td data-label="Role">Developer Relations</td>
+                                <td data-label="Timeline">Q3 2026</td>
+                                <td data-label="Key Requirements">Technical writing, community</td>
+                                <td data-label="Equity">0.5-1%</td>
                             </tr>
                             <tr>
-                                <td>VP Sales</td>
-                                <td>Q4 2026</td>
-                                <td>Enterprise SaaS sales</td>
-                                <td>1-2%</td>
+                                <td data-label="Role">VP Sales</td>
+                                <td data-label="Timeline">Q4 2026</td>
+                                <td data-label="Key Requirements">Enterprise SaaS sales</td>
+                                <td data-label="Equity">1-2%</td>
                             </tr>
                         </tbody>
                     </table>
@@ -2175,55 +2183,55 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td rowspan="5" style="vertical-align: top;"><strong>Engineering</strong></td>
-                                <td>CTO/Co-founder</td>
-                                <td>$200K</td>
+                                <td data-label="Category" rowspan="5" style="vertical-align: top;"><strong>Engineering</strong></td>
+                                <td data-label="Item">CTO/Co-founder</td>
+                                <td data-label="Amount">$200K</td>
                             </tr>
                             <tr>
-                                <td>Senior Engineers (2)</td>
-                                <td>$350K</td>
+                                <td data-label="Item">Senior Engineers (2)</td>
+                                <td data-label="Amount">$350K</td>
                             </tr>
                             <tr>
-                                <td>AI/ML Engineer</td>
-                                <td>$180K</td>
+                                <td data-label="Item">AI/ML Engineer</td>
+                                <td data-label="Amount">$180K</td>
                             </tr>
                             <tr>
-                                <td>Infrastructure & Tools</td>
-                                <td>$270K</td>
+                                <td data-label="Item">Infrastructure & Tools</td>
+                                <td data-label="Amount">$270K</td>
                             </tr>
                             <tr>
-                                <td>AI API Costs</td>
-                                <td>$500K</td>
+                                <td data-label="Item">AI API Costs</td>
+                                <td data-label="Amount">$500K</td>
                             </tr>
                             <tr>
-                                <td rowspan="4" style="vertical-align: top;"><strong>Go-to-Market</strong></td>
-                                <td>Developer Relations</td>
-                                <td>$150K</td>
+                                <td data-label="Category" rowspan="4" style="vertical-align: top;"><strong>Go-to-Market</strong></td>
+                                <td data-label="Item">Developer Relations</td>
+                                <td data-label="Amount">$150K</td>
                             </tr>
                             <tr>
-                                <td>Marketing & Content</td>
-                                <td>$150K</td>
+                                <td data-label="Item">Marketing & Content</td>
+                                <td data-label="Amount">$150K</td>
                             </tr>
                             <tr>
-                                <td>Conferences & Events</td>
-                                <td>$100K</td>
+                                <td data-label="Item">Conferences & Events</td>
+                                <td data-label="Amount">$100K</td>
                             </tr>
                             <tr>
-                                <td>Customer Success</td>
-                                <td>$100K</td>
+                                <td data-label="Item">Customer Success</td>
+                                <td data-label="Amount">$100K</td>
                             </tr>
                             <tr>
-                                <td rowspan="3" style="vertical-align: top;"><strong>Operations</strong></td>
-                                <td>Legal & Compliance</td>
-                                <td>$125K</td>
+                                <td data-label="Category" rowspan="3" style="vertical-align: top;"><strong>Operations</strong></td>
+                                <td data-label="Item">Legal & Compliance</td>
+                                <td data-label="Amount">$125K</td>
                             </tr>
                             <tr>
-                                <td>Finance & Admin</td>
-                                <td>$125K</td>
+                                <td data-label="Item">Finance & Admin</td>
+                                <td data-label="Amount">$125K</td>
                             </tr>
                             <tr>
-                                <td>Office & Insurance</td>
-                                <td>$125K</td>
+                                <td data-label="Item">Office & Insurance</td>
+                                <td data-label="Amount">$125K</td>
                             </tr>
                         </tbody>
                     </table>
