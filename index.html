@@ -964,63 +964,78 @@
     </footer>
 
     <script>
-        // Sticky header on scroll
-        let lastScroll = 0;
-        const header = document.getElementById('header');
+    // Sticky header on scroll
+    let lastScroll = 0;
+    const header = document.getElementById('header');
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
 
-            if (currentScroll > 300) {
-                header.classList.add('visible');
+        if (currentScroll > 300) {
+            header.classList.add('visible');
+        } else {
+            header.classList.remove('visible');
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Email form submission with Formspree
+    const form = document.getElementById('waitlistForm');
+    const successMessage = document.getElementById('successMessage');
+    const emailInput = document.getElementById('emailInput');
+
+    // 🔁 REPLACE THIS with your actual Formspree endpoint
+    const WAITLIST_URL = 'https://formspree.io/f/xovrkdev';
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const email = emailInput.value;
+        if (!email) return;
+
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('source', 'homepage-waitlist');
+
+        try {
+            const res = await fetch(WAITLIST_URL, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+                // Show success message
+                successMessage.classList.add('show');
+                emailInput.value = '';
+
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
             } else {
-                header.classList.remove('visible');
+                alert('Something went wrong. Please try again.');
             }
+        } catch (err) {
+            alert('Network error. Please try again.');
+        }
+    });
 
-            lastScroll = currentScroll;
-        });
+    // Email validation (kept exactly as-is)
+    emailInput.addEventListener('input', (e) => {
+        const email = e.target.value;
+        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-        // Email form submission
-        const form = document.getElementById('waitlistForm');
-        const successMessage = document.getElementById('successMessage');
-        const emailInput = document.getElementById('emailInput');
+        if (email && !isValid) {
+            emailInput.style.color = '#EF476F';
+        } else {
+            emailInput.style.color = 'var(--white)';
+        }
+    });
+</script>
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const email = emailInput.value;
-
-            // TODO: Replace with actual email service integration
-            // Recommended services:
-            // - Mailchimp: https://mailchimp.com/
-            // - ConvertKit: https://convertkit.com/
-            // - Loops: https://loops.so/
-            // - Resend: https://resend.com/
-
-            console.log('Email submitted:', email);
-
-            // Show success message
-            successMessage.classList.add('show');
-            emailInput.value = '';
-
-            // Hide after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-        });
-
-        // Email validation
-        emailInput.addEventListener('input', (e) => {
-            const email = e.target.value;
-            const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-            if (email && !isValid) {
-                emailInput.style.color = '#EF476F';
-            } else {
-                emailInput.style.color = 'var(--white)';
-            }
-        });
-    </script>
 </body>
 </html>
+
 
