@@ -223,8 +223,8 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             margin-top: 4rem;
         }
 
@@ -276,7 +276,7 @@
 
         /* Section */
         .section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
@@ -287,7 +287,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-badge {
@@ -321,10 +321,21 @@
         /* Stats Grid */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin: 4rem 0;
         }
+
+        /* 5-card grid: 3 cards on first row, 2 centered on second row */
+        .stats-grid-5 {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .stats-grid-5 .stat-card:nth-child(1) { grid-column: 1 / 3; }
+        .stats-grid-5 .stat-card:nth-child(2) { grid-column: 3 / 5; }
+        .stats-grid-5 .stat-card:nth-child(3) { grid-column: 5 / 7; }
+        .stats-grid-5 .stat-card:nth-child(4) { grid-column: 2 / 4; }
+        .stats-grid-5 .stat-card:nth-child(5) { grid-column: 4 / 6; }
 
         .stat-card {
             background: var(--white);
@@ -392,9 +403,16 @@
         /* Feature Cards */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        /* 2-card grid: centered */
+        .feature-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 900px;
+            margin: 4rem auto;
         }
 
         .feature-card {
@@ -421,12 +439,15 @@
             justify-content: center;
             font-size: 1.75rem;
             margin-bottom: 1.5rem;
+            color: var(--technical-cyan);
         }
 
         .feature-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
             color: var(--text-dark);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .feature-card .price {
@@ -434,18 +455,22 @@
             font-weight: 700;
             color: var(--blueprint-navy);
             margin: 0.75rem 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .feature-card p {
             color: var(--text-medium);
             line-height: 1.6;
             font-size: 0.95rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         /* Table */
         .data-table {
             width: 100%;
-            margin: 2rem 0;
+            margin: 3.5rem 0;
             position: relative;
         }
 
@@ -505,7 +530,7 @@
         .timeline {
             position: relative;
             padding: 2rem 0;
-            margin: 3rem 0;
+            margin: 4rem 0;
         }
 
         .timeline::before {
@@ -521,7 +546,7 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -662,8 +687,8 @@
         /* Return Cards */
         .return-grid {
             display: grid;
-            gap: 1.5rem;
-            margin: 3rem 0;
+            gap: 2.5rem;
+            margin: 4rem 0;
         }
 
         .return-card {
@@ -881,6 +906,16 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .stats-grid-5 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid-5 .stat-card:nth-child(1) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(2) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(3) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(4) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(5) { grid-column: 1 / -1; max-width: 400px; margin: 0 auto; }
+
             .feature-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -955,6 +990,16 @@
                 gap: 1.25rem;
             }
 
+            .stats-grid-5 {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid-5 .stat-card:nth-child(1) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(2) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(3) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(4) { grid-column: auto; }
+            .stats-grid-5 .stat-card:nth-child(5) { grid-column: auto; max-width: none; margin: 0; }
+
             .stat-card {
                 padding: 1.5rem;
             }
@@ -963,7 +1008,8 @@
                 font-size: 2.5rem;
             }
 
-            .feature-grid {
+            .feature-grid,
+            .feature-grid-2 {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
@@ -1446,7 +1492,7 @@
         <!-- Navigation -->
         <nav class="nav" id="mainNav">
             <div class="nav-content">
-                <a href="index.html" class="nav-logo">
+                <a href="invest-index.html" class="nav-logo">
                     <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g transform="translate(12, 12)">
                             <rect x="0" y="0" width="24" height="24"
@@ -1659,55 +1705,59 @@ const analysis = await lexios.analyze({
                     <p>We use foundation models (GPT-4V, Claude, Gemini) within construction-specific frameworks. Our value: 5+ years of construction expertise, building code databases for all 50 states, and deterministic outputs that enterprises require.</p>
                 </div>
 
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">How Software Companies Use Our APIs</h3>
+                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Who Uses Our APIs</h3>
 
                 <div class="feature-grid">
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">🏗️</div>
-                        <h3>For GC Software</h3>
-                        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-medium);">Companies like Procore, BuilderTrend</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.9375rem; color: var(--text-medium);">
-                            <li>• Quick takeoff automation</li>
-                            <li>• RFI generation from plans</li>
-                            <li>• Change order validation</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-weight: 700; color: var(--technical-cyan);">Value: $10K+ MRR per partner</p>
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>GC Software</h3>
+                        <div class="stat-label" style="margin-bottom: 0.75rem;">Procore, BuilderTrend</div>
+                        <p>Takeoff automation, RFI generation, change orders</p>
                     </div>
 
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">📐</div>
-                        <h3>For Design Software</h3>
-                        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-medium);">Autodesk, Revit, SketchUp partners</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.9375rem; color: var(--text-medium);">
-                            <li>• Code compliance verification</li>
-                            <li>• Drawing conflict detection</li>
-                            <li>• Spec consistency checks</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-weight: 700; color: var(--technical-cyan);">Value: $15K+ MRR per partner</p>
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3L8 3L12 8L8 13L3 13L3 3Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <circle cx="17" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M14 18L20 18L20 22L14 22L14 18Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Design Tools</h3>
+                        <div class="stat-label" style="margin-bottom: 0.75rem;">Autodesk, Revit Partners</div>
+                        <p>Code compliance, conflict detection, spec checks</p>
                     </div>
 
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">🏛️</div>
-                        <h3>For Gov Software</h3>
-                        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-medium);">Permit systems, municipal tools</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.9375rem; color: var(--text-medium);">
-                            <li>• Automated permit review</li>
-                            <li>• Code compliance checking</li>
-                            <li>• Plan consistency verification</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-weight: 700; color: var(--technical-cyan);">Value: $20K+ MRR per partner</p>
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M8 3L8 21M16 3L16 21M3 8L21 8M3 16L21 16" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Gov Systems</h3>
+                        <div class="stat-label" style="margin-bottom: 0.75rem;">Permit & Municipal</div>
+                        <p>Automated permit review, compliance checking</p>
                     </div>
 
                     <div class="feature-card fade-in">
-                        <div class="feature-icon">🏢</div>
-                        <h3>For Owner Software</h3>
-                        <p style="margin-bottom: 0.75rem; font-weight: 600; color: var(--text-medium);">Facility management, owner rep tools</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.9375rem; color: var(--text-medium);">
-                            <li>• Progress verification</li>
-                            <li>• Change order validation</li>
-                            <li>• Quality assurance checks</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-weight: 700; color: var(--technical-cyan);">Value: $8K+ MRR per partner</p>
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Owners</h3>
+                        <div class="stat-label" style="margin-bottom: 0.75rem;">Facility Management</div>
+                        <p>Progress verification, quality assurance</p>
                     </div>
                 </div>
 
@@ -2002,7 +2052,7 @@ const analysis = await lexios.analyze({
                     </p>
                 </div>
 
-                <div class="feature-grid" style="max-width: 800px; margin: 0 auto;">
+                <div class="feature-grid feature-grid-2">
                     <div class="feature-card fade-in">
                         <div class="feature-icon" style="background: var(--technical-cyan); color: var(--blueprint-navy); font-size: 1.5rem; font-weight: 700;">
                             AS
@@ -2022,52 +2072,6 @@ const analysis = await lexios.analyze({
                     </div>
                 </div>
 
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Hiring Roadmap</h3>
-
-                <div class="data-table fade-in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Role</th>
-                                <th>Timeline</th>
-                                <th>Key Requirements</th>
-                                <th>Equity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Role"><strong>CTO/Co-founder</strong></td>
-                                <td data-label="Timeline">Q1 2026</td>
-                                <td data-label="Key Requirements">Enterprise SaaS, AI/ML expertise</td>
-                                <td data-label="Equity">15-20%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Role">Senior Backend Engineer</td>
-                                <td data-label="Timeline">Q2 2026</td>
-                                <td data-label="Key Requirements">TypeScript, API development</td>
-                                <td data-label="Equity">1-2%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Role">AI/ML Engineer</td>
-                                <td data-label="Timeline">Q2 2026</td>
-                                <td data-label="Key Requirements">Vision models, PyTorch</td>
-                                <td data-label="Equity">1-2%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Role">Developer Relations</td>
-                                <td data-label="Timeline">Q3 2026</td>
-                                <td data-label="Key Requirements">Technical writing, community</td>
-                                <td data-label="Equity">0.5-1%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Role">VP Sales</td>
-                                <td data-label="Timeline">Q4 2026</td>
-                                <td data-label="Key Requirements">Enterprise SaaS sales</td>
-                                <td data-label="Equity">1-2%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </section>
 
@@ -2140,7 +2144,7 @@ const analysis = await lexios.analyze({
 
                 <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Budget Allocation</h3>
 
-                <div class="stats-grid">
+                <div class="stats-grid stats-grid-5">
                     <div class="stat-card fade-in">
                         <div class="stat-value">$1.75M</div>
                         <div class="stat-label">Engineering</div>
