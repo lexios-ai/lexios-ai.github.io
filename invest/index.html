@@ -878,11 +878,65 @@
                 font-size: 0.8125rem;
             }
         }
-    </style>
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="mainNav">
+    <!-- Email Gate -->
+    <div id="invest-gate" style="
+         max-width: 480px;
+         margin: 100px auto 40px;
+         padding: 24px 28px;
+         border-radius: 12px;
+         border: 1px solid #DEE2E6;
+         background: #F8F9FA;
+         text-align: center;
+         font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        <h2 style="margin-bottom: 12px; font-size: 1.5rem; font-weight: 700; color: #0D1B2A;">
+            Access the Lexios Investor Packet
+        </h2>
+        <p style="margin-bottom: 20px; color:#495057; font-size:0.95rem;">
+            Enter your email to continue. We’ll send you updates on the round and progress.
+        </p>
+
+        <form
+          id="invest-access-form"
+          action="https://formspree.io/f/mgvdnkao"
+          method="POST"
+          style="display:flex; flex-direction:column; gap:12px;">
+
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@company.com"
+            style="padding:12px 14px; border-radius:8px; border:1px solid #CED4DA; font-size:0.95rem;">
+
+          <!-- Helpful metadata -->
+          <input type="hidden" name="source" value="invest-gate">
+          <input type="hidden" name="page" value="lexios.ai/invest">
+
+          <button
+            type="submit"
+            style="padding:12px 16px; border-radius:8px; border:none;
+                   background:#0D1B2A; color:white; font-weight:600; cursor:pointer;">
+            Continue to investor packet
+          </button>
+
+          <div id="invest-error" style="display:none; color:#E63946; font-size:0.85rem;">
+            Something went wrong. Please try again.
+          </div>
+        </form>
+
+        <div id="invest-success" style="display:none; margin-top:10px; color:#06D6A0; font-size:0.9rem;">
+          Thank you — loading the investor packet…
+        </div>
+    </div>
+
+    <!-- Actual content (hidden until email entered) -->
+    <div id="invest-content" style="display:none;">
+        <!-- Navigation -->
+        <nav class="nav" id="mainNav">
+
         <div class="nav-content">
             <div class="nav-logo">
                 <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1737,7 +1791,10 @@
         </div>
     </footer>
 
-    <script>
+     <!-- close hidden content wrapper -->
+    </div>
+
+        <script>
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -1771,6 +1828,48 @@
 
             lastScroll = currentScroll;
         });
+
+        // Email gate logic for investor page
+        (function() {
+            const form = document.getElementById('invest-access-form');
+            const gate = document.getElementById('invest-gate');
+            const content = document.getElementById('invest-content');
+            const errorBox = document.getElementById('invest-error');
+            const successBox = document.getElementById('invest-success');
+
+            if (!form || !gate || !content) return;
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                if (errorBox) errorBox.style.display = 'none';
+
+                const formData = new FormData(form);
+
+                try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (res.ok) {
+                        if (successBox) successBox.style.display = 'block';
+
+                        setTimeout(function() {
+                            gate.style.display = 'none';
+                            content.style.display = 'block';
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }, 800);
+                    } else {
+                        if (errorBox) errorBox.style.display = 'block';
+                    }
+                } catch (err) {
+                    if (errorBox) errorBox.style.display = 'block';
+                }
+            });
+        })();
     </script>
+
 </body>
 </html>
+
