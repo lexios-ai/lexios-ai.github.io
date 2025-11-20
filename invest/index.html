@@ -1196,28 +1196,52 @@
         /* Email gate responsive */
         @media (max-width: 768px) {
             #invest-gate {
-                margin: 100px auto 30px !important;
-                padding: 20px 24px !important;
-                max-width: 90% !important;
+                padding: 1.5rem !important;
+            }
+
+            #invest-gate > div {
+                padding: 2rem 1.75rem !important;
             }
 
             #invest-gate h2 {
-                font-size: 1.25rem !important;
+                font-size: 1.5rem !important;
             }
 
             #invest-gate p {
-                font-size: 0.875rem !important;
+                font-size: 0.9375rem !important;
+            }
+
+            #invest-gate input[type="email"] {
+                padding: 0.875rem 1rem !important;
+                font-size: 0.9375rem !important;
+            }
+
+            #invest-gate button[type="submit"] {
+                padding: 0.875rem 1.25rem !important;
+                font-size: 0.9375rem !important;
             }
         }
 
         @media (max-width: 480px) {
             #invest-gate {
-                margin: 80px auto 20px !important;
-                padding: 18px 20px !important;
+                padding: 1rem !important;
+            }
+
+            #invest-gate > div {
+                padding: 2rem 1.5rem !important;
             }
 
             #invest-gate h2 {
-                font-size: 1.125rem !important;
+                font-size: 1.375rem !important;
+            }
+
+            #invest-gate p {
+                font-size: 0.875rem !important;
+            }
+
+            #invest-gate svg {
+                width: 40px !important;
+                height: 40px !important;
             }
         }
     </style>
@@ -1226,52 +1250,143 @@
 
     <!-- Email Gate -->
     <div id="invest-gate" style="
-         max-width: 480px;
-         margin: 120px auto 40px;
-         padding: 24px 28px;
-         border-radius: 12px;
-         border: 1px solid #DEE2E6;
-         background: #F8F9FA;
-         text-align: center;
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: linear-gradient(135deg, #0D1B2A 0%, #1B4965 100%);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 9999;
+         padding: 2rem;
          font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-        <h2 style="margin-bottom: 12px; font-size: 1.5rem; font-weight: 700; color: #0D1B2A;">
-            Access the Lexios Investor Packet
-        </h2>
-        <p style="margin-bottom: 20px; color:#495057; font-size:0.95rem;">
-            Enter your email to continue. We’ll send you updates on the round and progress.
-        </p>
 
-        <form
-          id="invest-access-form"
-          action="https://formspree.io/f/mgvdnkao"
-          method="POST"
-          style="display:flex; flex-direction:column; gap:12px;">
+        <div style="
+             max-width: 480px;
+             width: 100%;
+             background: rgba(255, 255, 255, 0.1);
+             backdrop-filter: blur(20px);
+             -webkit-backdrop-filter: blur(20px);
+             border: 1px solid rgba(98, 182, 203, 0.3);
+             border-radius: 16px;
+             padding: 3rem 2.5rem;
+             text-align: center;
+             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
 
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="you@company.com"
-            style="padding:12px 14px; border-radius:8px; border:1px solid #CED4DA; font-size:0.95rem;">
+            <!-- Logo -->
+            <div style="margin-bottom: 2rem; display: inline-flex; align-items: center; justify-content: center;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(12, 12)">
+                        <rect x="0" y="0" width="24" height="24"
+                              transform="rotate(45 12 12)"
+                              fill="#62B6CB"
+                              stroke="none"/>
+                        <rect x="2" y="2" width="20" height="20"
+                              transform="rotate(45 12 12)"
+                              fill="none"
+                              stroke="#0D1B2A"
+                              stroke-width="3"/>
+                    </g>
+                </svg>
+            </div>
 
-          <!-- Helpful metadata -->
-          <input type="hidden" name="source" value="invest-gate">
-          <input type="hidden" name="page" value="lexios.ai/invest">
+            <h2 style="
+                margin-bottom: 0.75rem;
+                font-size: 1.75rem;
+                font-weight: 800;
+                color: #ffffff;
+                letter-spacing: -0.025em;">
+                Access Investor Packet
+            </h2>
 
-          <button
-            type="submit"
-            style="padding:12px 16px; border-radius:8px; border:none;
-                   background:#0D1B2A; color:white; font-weight:600; cursor:pointer;">
-            Continue to Investor Packet
-          </button>
+            <p style="
+                margin-bottom: 2rem;
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 1rem;
+                line-height: 1.6;">
+                Enter your email to view the full investment opportunity. We'll send updates on the round and progress.
+            </p>
 
-          <div id="invest-error" style="display:none; color:#E63946; font-size:0.85rem;">
-            Something went wrong. Please try again.
-          </div>
-        </form>
+            <form
+              id="invest-access-form"
+              action="https://formspree.io/f/mgvdnkao"
+              method="POST"
+              style="display:flex; flex-direction:column; gap:1rem;">
 
-        <div id="invest-success" style="display:none; margin-top:10px; color:#06D6A0; font-size:0.9rem;">
-          Thank you — loading the investor packet…
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@company.com"
+                style="
+                    padding: 1rem 1.25rem;
+                    border-radius: 10px;
+                    border: 1px solid rgba(98, 182, 203, 0.4);
+                    font-size: 1rem;
+                    background: rgba(255, 255, 255, 0.15);
+                    color: #ffffff;
+                    font-family: 'Work Sans', sans-serif;
+                    transition: all 0.2s ease;"
+                onfocus="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.borderColor='#62B6CB';"
+                onblur="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.borderColor='rgba(98, 182, 203, 0.4)';">
+
+              <!-- Helpful metadata -->
+              <input type="hidden" name="source" value="invest-gate">
+              <input type="hidden" name="page" value="lexios.ai/invest">
+
+              <button
+                type="submit"
+                style="
+                    padding: 1rem 1.5rem;
+                    border-radius: 10px;
+                    border: none;
+                    background: #62B6CB;
+                    color: #0D1B2A;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    font-family: 'Work Sans', sans-serif;
+                    transition: all 0.2s ease;
+                    box-shadow: 0 4px 12px rgba(98, 182, 203, 0.3);"
+                onmouseover="this.style.background='#7ECFE0'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(98, 182, 203, 0.4)';"
+                onmouseout="this.style.background='#62B6CB'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(98, 182, 203, 0.3)';">
+                Continue to Investor Packet →
+              </button>
+
+              <div id="invest-error" style="
+                  display: none;
+                  color: #FF6B6B;
+                  font-size: 0.9rem;
+                  background: rgba(255, 107, 107, 0.1);
+                  padding: 0.75rem;
+                  border-radius: 8px;
+                  border: 1px solid rgba(255, 107, 107, 0.3);">
+                Something went wrong. Please try again.
+              </div>
+            </form>
+
+            <div id="invest-success" style="
+                display: none;
+                margin-top: 1rem;
+                color: #06D6A0;
+                font-size: 1rem;
+                background: rgba(6, 214, 160, 0.1);
+                padding: 0.875rem;
+                border-radius: 8px;
+                border: 1px solid rgba(6, 214, 160, 0.3);
+                font-weight: 600;">
+              Thank you — loading the investor packet…
+            </div>
+
+            <p style="
+                margin-top: 2rem;
+                font-size: 0.8125rem;
+                color: rgba(255, 255, 255, 0.6);
+                line-height: 1.5;">
+                Confidential information. By accessing this packet, you agree to keep all information strictly confidential.
+            </p>
         </div>
     </div>
 
