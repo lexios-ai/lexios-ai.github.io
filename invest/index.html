@@ -3,189 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexios - Investment Opportunity | November 2025</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <title>LEXIOS - Investment Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --blueprint-navy: #0D1B2A;
-            --blueprint-blue: #1B4965;
-            --technical-cyan: #62B6CB;
-            --alert-red: #E63946;
-            --success-green: #06D6A0;
-            --warning-amber: #FFB703;
-            --paper-white: #F8F9FA;
-            --grid-grey: #E9ECEF;
-            --text-dark: #1A1A1A;
-            --text-medium: #495057;
-            --text-light: #6C757D;
-            --border-color: #DEE2E6;
-            --white: #ffffff;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        @page {
-            size: letter;
-            margin: 0.75in;
-        }
-
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --navy: #0D1B2A;
+            --blue: #1B4965;
+            --cyan: #62B6CB;
+            --white: #FFFFFF;
+            --offwhite: #F8F9FA;
+            --text-dark: #1A1A1A;
+            --text-medium: #495057;
+            --text-light: #6C757D;
+            --border: #DEE2E6;
         }
 
         body {
-            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
+            font-family: 'Work Sans', sans-serif;
             background: var(--white);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Work Sans', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .nav.scrolled {
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.2s ease;
-        }
-
-        .nav-logo:hover {
-            opacity: 0.8;
-        }
-
-        .nav-logo svg {
-            width: 36px;
-            height: 36px;
-        }
-
-        .nav-title {
-            font-size: 1.25rem;
-            font-weight: 800;
             color: var(--text-dark);
-            font-family: 'Work Sans', sans-serif;
-            letter-spacing: -0.025em;
+            overflow: hidden;
         }
 
-        .btn {
-            padding: 0.625rem 1.5rem;
-            border-radius: 6px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.875rem;
-            font-family: 'Work Sans', sans-serif;
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
         }
 
-        .btn-primary {
-            background: var(--blueprint-navy);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--blueprint-blue);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(13, 27, 42, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-medium);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--paper-white);
-            border-color: var(--text-medium);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
+        .slide {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, var(--white) 0%, var(--offwhite) 100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(to bottom, var(--white) 0%, var(--paper-white) 100%);
+            padding: clamp(3rem, 6vh, 6rem) clamp(3rem, 8vw, 8rem);
         }
 
-        .hero::before {
+        .slide::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(98, 182, 203, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(13, 27, 42, 0.04) 0%, transparent 50%);
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(98, 182, 203, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
             pointer-events: none;
+            z-index: 0;
         }
 
-        .hero-content {
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(98, 182, 203, 0.1);
-            border: 1px solid rgba(98, 182, 203, 0.3);
-            border-radius: 50px;
-            color: var(--blueprint-navy);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.6s ease;
+        .slide.active .slide-content > * {
+            animation: slideUp 0.6s ease-out forwards;
         }
 
-        @keyframes fadeInUp {
+        .slide.active .slide-content > *:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -196,2131 +87,1202 @@
             }
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-            color: var(--gray-900);
-            animation: fadeInUp 0.6s ease 0.1s both;
+        .slide-content {
+            width: 100%;
+            max-width: 1400px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(1.5rem, 3vh, 2.5rem);
+            position: relative;
+            z-index: 1;
         }
 
-        .hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--blueprint-navy) 0%, var(--technical-cyan) 100%);
+        /* Typography */
+        .display {
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--navy);
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            color: var(--navy);
+        }
+
+        .subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 400;
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        .accent-line {
+            width: clamp(60px, 8vw, 80px);
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan) 0%, rgba(98, 182, 203, 0.5) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(98, 182, 203, 0.3);
+        }
+
+        /* Navigation */
+        .nav-controls {
+            position: fixed;
+            bottom: 2rem;
+            right: 3rem;
+            display: flex;
+            gap: 0.75rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            border-radius: 50%;
+            color: var(--navy);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: var(--offwhite);
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 2rem;
+            left: 3rem;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+            background: var(--white);
+            padding: 12px 24px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: clamp(1.25rem, 2.5vw, 2rem);
+            flex: 1;
+            align-content: center;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+        @media (max-width: 1024px) {
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Card */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(1.5rem, 3vh, 2rem);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(98, 182, 203, 0.15);
+            border-color: var(--cyan);
+        }
+
+        .card-value {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-label {
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Hero */
+        .hero-center {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(2rem, 4vh, 3rem);
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 2vw, 1.5rem);
+        }
+
+        .logo-diamond {
+            width: clamp(56px, 6vw, 72px);
+            height: clamp(56px, 6vw, 72px);
+            filter: drop-shadow(0 4px 12px rgba(98, 182, 203, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tagline {
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-medium);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            line-height: 1.7;
-            animation: fadeInUp 0.6s ease 0.2s both;
+        /* Feature List */
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.875rem, 1.5vh, 1.25rem);
+            flex: 1;
+            align-content: center;
+            justify-content: center;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .hero-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        .hero-card:nth-child(1) { animation-delay: 0.3s; }
-        .hero-card:nth-child(2) { animation-delay: 0.4s; }
-        .hero-card:nth-child(3) { animation-delay: 0.5s; }
-        .hero-card:nth-child(4) { animation-delay: 0.6s; }
-
-        .hero-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-            border-color: var(--technical-cyan);
-        }
-
-        .card-label {
-            font-size: 0.875rem;
-            color: var(--text-medium);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .card-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            font-family: 'Work Sans', sans-serif;
-        }
-
-        .card-value.blue { color: var(--blueprint-navy); }
-        .card-value.cyan { color: var(--technical-cyan); }
-        .card-value.emerald { color: var(--success-green); }
-
-        .card-description {
-            font-size: 0.875rem;
-            color: var(--text-medium);
-            margin-top: 0.5rem;
-        }
-
-        /* Section */
-        .section {
-            padding: 8rem 2rem;
-            position: relative;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 0.375rem 0.875rem;
-            background: rgba(98, 182, 203, 0.1);
-            color: var(--blueprint-navy);
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: 1rem;
-            font-weight: 800;
-            color: var(--text-dark);
-        }
-
-        .section-description {
-            font-size: 1.125rem;
-            color: var(--text-medium);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2.5rem;
-            margin: 4rem 0;
-        }
-
-        /* 5-card grid: 3 cards on first row, 2 centered on second row */
-        .stats-grid-5 {
-            grid-template-columns: repeat(6, 1fr);
-        }
-
-        .stats-grid-5 .stat-card:nth-child(1) { grid-column: 1 / 3; }
-        .stats-grid-5 .stat-card:nth-child(2) { grid-column: 3 / 5; }
-        .stats-grid-5 .stat-card:nth-child(3) { grid-column: 5 / 7; }
-        .stats-grid-5 .stat-card:nth-child(4) { grid-column: 2 / 4; }
-        .stats-grid-5 .stat-card:nth-child(5) { grid-column: 4 / 6; }
-
-        .stat-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+        .feature-item {
+            background: linear-gradient(135deg, var(--white) 0%, rgba(98, 182, 203, 0.02) 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(1.25rem, 2vh, 1.75rem);
+            display: flex;
+            gap: clamp(1.25rem, 2vw, 1.75rem);
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
             overflow: hidden;
         }
 
-        .stat-card::before {
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--cyan) 0%, rgba(98, 182, 203, 0.5) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .feature-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 32px rgba(98, 182, 203, 0.15);
+            border-color: var(--cyan);
+        }
+
+        .feature-item:hover::before {
+            opacity: 1;
+        }
+
+        .feature-num {
+            width: clamp(48px, 4.5vw, 56px);
+            height: clamp(48px, 4.5vw, 56px);
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            color: var(--white);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.375rem, 2vw, 1.625rem);
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(98, 182, 203, 0.25);
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-title {
+            font-size: clamp(1.25rem, 2.1vw, 1.625rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            font-size: clamp(0.9375rem, 1.5vw, 1.0625rem);
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 0.625rem;
+        }
+
+        .feature-price {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(98, 182, 203, 0.15) 0%, rgba(98, 182, 203, 0.08) 100%);
+            color: var(--cyan);
+            padding: 0.375rem 0.875rem;
+            border-radius: 8px;
+            font-size: clamp(0.8125rem, 1.2vw, 1rem);
+            font-weight: 700;
+            border: 1px solid rgba(98, 182, 203, 0.2);
+        }
+
+        /* Segment Cards */
+        .segment-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(1.5rem, 3vh, 2rem);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .segment-card::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, var(--blueprint-navy), var(--technical-cyan));
+            background: linear-gradient(90deg, var(--cyan) 0%, #4A9FB5 100%);
             transform: scaleX(0);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-            border-color: var(--technical-cyan);
+        .segment-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(98, 182, 203, 0.15);
+            border-color: var(--cyan);
         }
 
-        .stat-card:hover::before {
+        .segment-card:hover::after {
             transform: scaleX(1);
         }
 
-        .stat-value {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--blueprint-navy);
-            font-family: 'Work Sans', sans-serif;
-            margin-bottom: 0.5rem;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            line-height: 1.2;
+        .segment-icon {
+            font-size: clamp(2.5rem, 4vw, 3rem);
+            margin-bottom: 1rem;
         }
 
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-medium);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .stat-description {
-            font-size: 0.875rem;
-            color: var(--text-medium);
-            margin-top: 0.75rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        /* Feature Cards */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            margin: 4rem 0;
-        }
-
-        /* 2-card grid: centered */
-        .feature-grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 900px;
-            margin: 4rem auto;
-        }
-
-        .feature-card {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-            border-color: var(--technical-cyan);
-        }
-
-        .feature-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(98, 182, 203, 0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: var(--technical-cyan);
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .feature-card .price {
-            font-size: 1.5rem;
+        .segment-title {
+            font-size: clamp(1.125rem, 1.8vw, 1.375rem);
             font-weight: 700;
-            color: var(--blueprint-navy);
-            margin: 0.75rem 0;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
         }
 
-        .feature-card p {
+        .segment-subtitle {
+            font-size: clamp(0.75rem, 1vw, 0.875rem);
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .segment-list {
+            text-align: left;
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            line-height: 1.8;
             color: var(--text-medium);
-            line-height: 1.6;
-            font-size: 0.95rem;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
+            list-style: none;
+        }
+
+        .segment-list li {
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .segment-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 700;
+        }
+
+        /* Chart */
+        .chart-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(2rem, 3vh, 3rem);
+            margin-bottom: clamp(1.5rem, 2vh, 2rem);
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            height: clamp(200px, 30vh, 280px);
+            gap: clamp(1rem, 2vw, 2rem);
+        }
+
+        .chart-bar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .bar-fill {
+            width: 100%;
+            background: linear-gradient(180deg, var(--cyan) 0%, rgba(98, 182, 203, 0.7) 100%);
+            border-radius: 6px 6px 0 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: clamp(0.5rem, 1vh, 0.75rem);
+        }
+
+        .bar-value {
+            font-size: clamp(1rem, 2vw, 1.375rem);
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        .bar-growth {
+            font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+            font-weight: 700;
+            color: #10B981;
+            margin-top: 0.25rem;
+        }
+
+        .bar-label {
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-top: clamp(0.75rem, 1vh, 1rem);
         }
 
         /* Table */
         .data-table {
-            width: 100%;
-            margin: 3.5rem 0;
-            position: relative;
-        }
-
-        .data-table table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
             background: var(--white);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
+            margin-bottom: clamp(1.5rem, 2vh, 2rem);
         }
 
-        .data-table thead {
-            background: var(--paper-white);
-        }
-
-        .data-table th {
-            padding: 1rem 1.5rem;
-            text-align: left;
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
+            gap: 1rem;
+            padding: 1.25rem 1.75rem;
+            background: var(--offwhite);
+            font-size: clamp(0.75rem, 1vw, 0.875rem);
             font-weight: 700;
-            color: var(--text-medium);
-            font-size: 0.875rem;
+            color: var(--text-dark);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .data-table td {
-            padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr 1fr;
+            gap: 1rem;
+            padding: 1.25rem 1.75rem;
+            border-top: 1px solid var(--border);
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
             color: var(--text-medium);
         }
 
-        .data-table tbody tr {
-            transition: background 0.15s ease;
-        }
-
-        .data-table tbody tr:hover {
-            background: rgba(98, 182, 203, 0.05);
-        }
-
-        .data-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .highlight-row {
-            background: rgba(98, 182, 203, 0.1) !important;
-        }
-
-        .highlight-row td {
+        .table-row .highlight {
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
             font-weight: 700;
-            color: var(--blueprint-navy);
+            color: var(--cyan);
         }
 
         /* Timeline */
         .timeline {
-            position: relative;
-            padding: 2rem 0;
-            margin: 4rem 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1rem, 2vw, 1.5rem);
+            flex: 1;
+            align-content: center;
         }
 
-        .timeline::before {
+        @media (max-width: 1024px) {
+            .timeline { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .timeline-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(1.5rem, 2.5vh, 2rem);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(98, 182, 203, 0.15);
+            border-color: var(--cyan);
+        }
+
+        .timeline-q {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-phase {
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-mrr {
+            font-size: clamp(0.875rem, 1.3vw, 1rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-list {
+            text-align: left;
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            line-height: 1.6;
+            color: var(--text-medium);
+            list-style: none;
+        }
+
+        .timeline-list li::before {
+            content: '•';
+            color: var(--cyan);
+            margin-right: 0.5rem;
+        }
+
+        /* Why Cards */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(1.25rem, 2.5vw, 2rem);
+            flex: 1;
+            align-content: center;
+        }
+
+        .why-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(1.5rem, 2.5vh, 2rem);
+            display: flex;
+            gap: clamp(1rem, 2vw, 1.5rem);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(98, 182, 203, 0.15);
+            border-color: var(--cyan);
+        }
+
+        .why-number {
+            width: clamp(48px, 5vw, 56px);
+            height: clamp(48px, 5vw, 56px);
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.5rem, 2vw, 1.75rem);
+            font-weight: 900;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(98, 182, 203, 0.25);
+        }
+
+        .why-content h4 {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-content p {
+            font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+            color: var(--text-medium);
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(98, 182, 203, 0.1) 0%, rgba(98, 182, 203, 0.05) 100%);
+            border: 2px solid var(--cyan);
+            border-radius: 16px;
+            padding: clamp(2rem, 3vh, 2.5rem);
+            text-align: center;
+            margin: clamp(1rem, 2vh, 1.5rem) 0;
+            box-shadow: 0 4px 16px rgba(98, 182, 203, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
             content: '';
             position: absolute;
-            left: 50%;
             top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border-color);
-            transform: translateX(-50%);
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(98, 182, 203, 0.1), transparent);
+            animation: shimmer 3s infinite;
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3.5rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
 
-        .timeline-item:nth-child(even) .timeline-content {
-            grid-column: 1;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) .timeline-empty {
-            grid-column: 2;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-empty {
-            grid-column: 1;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            grid-column: 2;
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: 50%;
-            top: 2rem;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: var(--technical-cyan);
-            border-radius: 50%;
-            border: 4px solid var(--white);
-            box-shadow: 0 0 0 4px rgba(98, 182, 203, 0.2);
-            z-index: 2;
-        }
-
-        .timeline-content {
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .timeline-quarter {
-            font-size: 0.875rem;
-            color: var(--technical-cyan);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .cta-text {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
             color: var(--text-dark);
-        }
-
-        .timeline-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .timeline-content li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            color: var(--text-medium);
-            font-size: 0.95rem;
-        }
-
-        .timeline-content li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success-green);
-            font-weight: 700;
-        }
-
-        /* Info Boxes */
-        .info-box {
-            background: rgba(98, 182, 203, 0.05);
-            border: 1px solid rgba(98, 182, 203, 0.2);
-            border-left: 4px solid var(--technical-cyan);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .info-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .info-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .info-box li {
-            padding-left: 1.5rem;
+            line-height: 1.5;
             margin-bottom: 0.75rem;
             position: relative;
-            color: var(--text-medium);
+            z-index: 1;
         }
 
-        .info-box li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--technical-cyan);
+        .cta-highlight {
+            font-size: clamp(1.25rem, 2.2vw, 1.75rem);
             font-weight: 700;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
         }
 
-        .success-box {
-            background: rgba(6, 214, 160, 0.05);
-            border-color: rgba(6, 214, 160, 0.2);
-            border-left-color: var(--success-green);
-        }
-
-        .success-box li::before {
-            color: var(--success-green);
-        }
-
-        .warning-box {
-            background: rgba(255, 183, 3, 0.05);
-            border-color: rgba(255, 183, 3, 0.2);
-            border-left-color: var(--warning-amber);
-        }
-
-        .warning-box li::before {
-            color: var(--warning-amber);
-        }
-
-        /* Return Cards */
-        .return-grid {
-            display: grid;
-            gap: 2.5rem;
-            margin: 4rem 0;
-        }
-
-        .return-card {
+        .contact-box {
             background: var(--white);
-            border: 2px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .return-card:hover {
-            border-color: var(--technical-cyan);
-            box-shadow: 0 12px 24px rgba(98, 182, 203, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .return-card.featured {
-            border-color: var(--technical-cyan);
-            background: linear-gradient(to bottom right, var(--white), rgba(98, 182, 203, 0.05));
-        }
-
-        .return-badge {
-            display: inline-block;
-            padding: 0.375rem 0.875rem;
-            background: rgba(98, 182, 203, 0.15);
-            color: var(--blueprint-navy);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .return-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .return-details {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .return-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .return-row:last-child {
-            border-bottom: none;
-            border-top: 2px solid var(--technical-cyan);
-            padding-top: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .return-label {
-            color: var(--text-medium);
-            font-weight: 500;
-        }
-
-        .return-value {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .return-value.highlight {
-            font-size: 2rem;
-            color: var(--blueprint-navy);
-            font-family: 'Work Sans', sans-serif;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--blueprint-navy) 0%, var(--blueprint-blue) 100%);
+            border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 4rem 3rem;
+            padding: clamp(1.5rem, 2.5vh, 2rem);
             text-align: center;
-            margin: 4rem 0;
-            color: white;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
         }
 
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--blueprint-navy);
-            padding: 0.875rem 2rem;
+        .contact-name {
+            font-size: clamp(1.25rem, 2.2vw, 1.75rem);
             font-weight: 700;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 3rem 2rem 2rem;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            color: var(--text-medium);
-            background: var(--paper-white);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-dark);
-        }
-
-        .footer p {
+            color: var(--navy);
             margin-bottom: 0.5rem;
         }
 
-        .footer-legal {
-            font-size: 0.875rem;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid var(--border-color);
+        .contact-bio {
+            font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+            color: var(--text-medium);
+            margin-bottom: 0.75rem;
         }
 
-        /* Animations */
-        .fade-in {
+        .contact-email {
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--cyan) 0%, #4A9FB5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .instructions {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 24px;
+            font-size: 13px;
+            color: var(--text-medium);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 100;
+            transition: opacity 0.3s;
+        }
+
+        .instructions.fade {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Print Styles */
-        @media print {
-            .nav, .btn, .cta-section {
-                display: none !important;
-            }
-
-            .section {
-                page-break-inside: avoid;
-                padding: 1.5rem 0;
-            }
-
-            body {
-                background: white;
-            }
-        }
-
-        /* Responsive - Tablet */
-        @media (max-width: 1024px) {
-            .timeline::before {
-                left: 2rem;
-            }
-
-            .timeline-item {
-                grid-template-columns: 1fr;
-                padding-left: 4rem;
-            }
-
-            .timeline-item:nth-child(even) .timeline-content,
-            .timeline-item:nth-child(odd) .timeline-content {
-                grid-column: 1;
-                text-align: left;
-            }
-
-            .timeline-empty {
-                display: none;
-            }
-
-            .timeline-marker {
-                left: 2rem;
-            }
-
-            .hero-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid-5 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid-5 .stat-card:nth-child(1) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(2) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(3) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(4) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(5) { grid-column: 1 / -1; max-width: 400px; margin: 0 auto; }
-
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Responsive - Mobile */
-        @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 4rem 1.25rem;
-            }
-
-            .hero {
-                padding: 5rem 1.25rem 3rem;
-                min-height: 100svh;
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 10vw, 3rem);
-                line-height: 1.1;
-            }
-
-            .hero-subtitle {
-                font-size: clamp(1rem, 4vw, 1.125rem);
-                margin-bottom: 2rem;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-                margin-top: 2.5rem;
-            }
-
-            .hero-card {
-                padding: 1.5rem;
-            }
-
-            .card-value {
-                font-size: 2rem;
-            }
-
-            .nav-content {
-                padding: 1rem 1.25rem;
-            }
-
-            .nav-logo svg {
-                width: 32px;
-                height: 32px;
-            }
-
-            .nav-title {
-                font-size: 1.125rem;
-            }
-
-            .section-title {
-                font-size: clamp(1.75rem, 8vw, 2.5rem);
-            }
-
-            .section-description {
-                font-size: 1rem;
-            }
-
-            .section-header {
-                margin-bottom: 2.5rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.25rem;
-            }
-
-            .stats-grid-5 {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-grid-5 .stat-card:nth-child(1) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(2) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(3) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(4) { grid-column: auto; }
-            .stats-grid-5 .stat-card:nth-child(5) { grid-column: auto; max-width: none; margin: 0; }
-
-            .stat-card {
-                padding: 1.5rem;
-            }
-
-            .stat-value {
-                font-size: 2.5rem;
-            }
-
-            .feature-grid,
-            .feature-grid-2 {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .feature-card {
-                padding: 1.5rem;
-            }
-
-            /* Convert tables to card layout on mobile */
-            .data-table table {
-                border: none;
-            }
-
-            .data-table thead {
-                display: none;
-            }
-
-            .data-table tbody {
-                display: block;
-            }
-
-            .data-table tr {
-                display: block;
-                margin-bottom: 1.5rem;
-                background: var(--white);
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
-                padding: 1rem;
-            }
-
-            .data-table tr:hover {
-                background: var(--white);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            }
-
-            .data-table td {
-                display: block;
-                text-align: left;
-                padding: 0.5rem 0;
-                border: none;
-                font-size: 0.9375rem;
-            }
-
-            .data-table td::before {
-                content: attr(data-label);
-                display: block;
-                font-weight: 700;
-                color: var(--text-dark);
-                font-size: 0.75rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                margin-bottom: 0.25rem;
-            }
-
-            .data-table td[rowspan] {
-                display: block;
-                padding: 0.5rem 0;
-            }
-
-            .data-table .highlight-row {
-                background: rgba(98, 182, 203, 0.1) !important;
-                border-color: var(--technical-cyan);
-            }
-
-            .return-grid {
-                gap: 1.25rem;
-            }
-
-            .return-card {
-                padding: 1.75rem;
-            }
-
-            .return-card h3 {
-                font-size: 1.5rem;
-            }
-
-            .return-value {
-                font-size: 1.125rem;
-            }
-
-            .return-value.highlight {
-                font-size: 1.75rem;
-            }
-
-            .cta-section {
-                padding: 3rem 2rem;
-                margin: 3rem 1.25rem;
-                border-radius: 12px;
-            }
-
-            .cta-section h2 {
-                font-size: clamp(1.75rem, 8vw, 2.5rem);
-            }
-
-            .cta-section p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9375rem;
-            }
-
-            .btn-white {
-                padding: 0.875rem 1.5rem;
-            }
-
-            .info-box,
-            .success-box,
-            .warning-box {
-                padding: 1.25rem;
-                margin: 1.5rem 0;
-            }
-
-            .info-box h3,
-            .success-box h3,
-            .warning-box h3 {
-                font-size: 1.125rem;
-            }
-
-            .info-box li,
-            .success-box li,
-            .warning-box li {
-                font-size: 0.9375rem;
-                margin-bottom: 0.625rem;
-            }
-
-            .timeline {
-                padding-left: 3rem;
-            }
-
-            .timeline::before {
-                left: 1rem;
-            }
-
-            .timeline-marker {
-                left: 1rem;
-            }
-
-            .timeline-content {
-                padding: 1.5rem;
-            }
-
-            .timeline-content h3 {
-                font-size: 1.25rem;
-            }
-
-            .timeline-item {
-                padding-left: 3rem;
-            }
-
-            .footer {
-                padding: 2rem 1.25rem 1.5rem;
-            }
-
-            .footer h4 {
-                font-size: 1rem;
-            }
-
-            .footer p,
-            .footer-legal {
-                font-size: 0.8125rem;
-            }
-        }
-
-        /* Responsive - Small Mobile */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 4.5rem 1rem 2.5rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.75rem, 11vw, 2.5rem);
-            }
-
-            .hero-subtitle {
-                font-size: clamp(0.9375rem, 4.5vw, 1rem);
-            }
-
-            .hero-badge {
-                font-size: 0.8125rem;
-                padding: 0.375rem 0.75rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .section-badge {
-                font-size: 0.8125rem;
-                padding: 0.3125rem 0.75rem;
-            }
-
-            .section-title {
-                font-size: clamp(1.5rem, 9vw, 2rem);
-            }
-
-            .nav-content {
-                padding: 0.875rem 1rem;
-            }
-
-            .nav-logo svg {
-                width: 28px;
-                height: 28px;
-            }
-
-            .nav-title {
-                font-size: 1rem;
-            }
-
-            .hero-card,
-            .stat-card,
-            .feature-card {
-                padding: 1.25rem;
-            }
-
-            .card-value {
-                font-size: 1.75rem;
-            }
-
-            .stat-value {
-                font-size: 2.25rem;
-            }
-
-            .data-table tr {
-                padding: 0.875rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .data-table td {
-                padding: 0.375rem 0;
-                font-size: 0.875rem;
-            }
-
-            .data-table td::before {
-                font-size: 0.6875rem;
-            }
-
-            .return-card {
-                padding: 1.5rem;
-            }
-
-            .return-badge {
-                font-size: 0.6875rem;
-                padding: 0.3125rem 0.75rem;
-            }
-
-            .cta-section {
-                padding: 2.5rem 1.5rem;
-                margin: 2.5rem 1rem;
-            }
-
-            .btn,
-            .btn-white {
-                padding: 0.75rem 1.25rem;
-                font-size: 0.875rem;
-            }
-
-            .timeline-content {
-                padding: 1.25rem;
-            }
-
-            .timeline-content h3 {
-                font-size: 1.125rem;
-            }
-
-            .timeline-content li {
-                font-size: 0.875rem;
-            }
-        }
-
-        /* Email gate responsive */
-        @media (max-width: 768px) {
-            #invest-gate {
-                padding: 1.5rem !important;
-            }
-
-            #invest-gate > div {
-                padding: 2rem 1.75rem !important;
-            }
-
-            #invest-gate h2 {
-                font-size: 1.5rem !important;
-            }
-
-            #invest-gate p {
-                font-size: 0.9375rem !important;
-            }
-
-            #invest-gate input[type="email"] {
-                padding: 0.875rem 1rem !important;
-                font-size: 0.9375rem !important;
-            }
-
-            #invest-gate button[type="submit"] {
-                padding: 0.875rem 1.25rem !important;
-                font-size: 0.9375rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #invest-gate {
-                padding: 1rem !important;
-            }
-
-            #invest-gate > div {
-                padding: 2rem 1.5rem !important;
-            }
-
-            #invest-gate h2 {
-                font-size: 1.375rem !important;
-            }
-
-            #invest-gate p {
-                font-size: 0.875rem !important;
-            }
-
-            #invest-gate svg {
-                width: 40px !important;
-                height: 40px !important;
-            }
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Email Gate -->
-    <div id="invest-gate" style="
-         position: fixed;
-         top: 0;
-         left: 0;
-         right: 0;
-         bottom: 0;
-         background: linear-gradient(135deg, #0D1B2A 0%, #1B4965 100%);
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         z-index: 9999;
-         padding: 2rem;
-         font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-
-        <div style="
-             max-width: 480px;
-             width: 100%;
-             background: rgba(255, 255, 255, 0.1);
-             backdrop-filter: blur(20px);
-             -webkit-backdrop-filter: blur(20px);
-             border: 1px solid rgba(98, 182, 203, 0.3);
-             border-radius: 16px;
-             padding: 3rem 2.5rem;
-             text-align: center;
-             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
-
-            <!-- Logo -->
-            <div style="margin-bottom: 2rem; display: inline-flex; align-items: center; justify-content: center;">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(12, 12)">
-                        <rect x="0" y="0" width="24" height="24"
-                              transform="rotate(45 12 12)"
-                              fill="#62B6CB"
-                              stroke="none"/>
-                        <rect x="2" y="2" width="20" height="20"
-                              transform="rotate(45 12 12)"
-                              fill="none"
-                              stroke="#0D1B2A"
-                              stroke-width="3"/>
-                    </g>
-                </svg>
+<div class="slide-container">
+    <!-- 1: HERO -->
+    <div class="slide active">
+        <div class="slide-content">
+            <div class="hero-center">
+                <!-- LOGO NOW LINKS TO ROOT LANDING PAGE -->
+                <a href="https://lexios.ai" class="logo-container" style="text-decoration: none; color: inherit;">
+                    <svg class="logo-diamond" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(12, 12)">
+                            <rect x="0" y="0" width="24" height="24" transform="rotate(45 12 12)" fill="#62B6CB" stroke="none"/>
+                            <rect x="2" y="2" width="20" height="20" transform="rotate(45 12 12)" fill="none" stroke="#0D1B2A" stroke-width="3"/>
+                        </g>
+                    </svg>
+                    <div class="display">LEXIOS</div>
+                </a>
+                <div class="tagline">The Twilio for Construction Documents</div>
+                <div class="subtitle">Pure API infrastructure. Simple developer integrations. Massive market.</div>
+                <div class="grid grid-3" style="max-width: 1100px;">
+                    <div class="card">
+                        <div class="card-value">$3.5M</div>
+                        <div class="card-label">Seed Round</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">$15M</div>
+                        <div class="card-label">Valuation Cap</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">85%</div>
+                        <div class="card-label">Gross Margins</div>
+                    </div>
+                </div>
             </div>
-
-            <h2 style="
-                margin-bottom: 0.75rem;
-                font-size: 1.75rem;
-                font-weight: 800;
-                color: #ffffff;
-                letter-spacing: -0.025em;">
-                Access Investor Packet
-            </h2>
-
-            <p style="
-                margin-bottom: 2rem;
-                color: rgba(255, 255, 255, 0.85);
-                font-size: 1rem;
-                line-height: 1.6;">
-                Enter your email to view the full investment opportunity. We'll send updates on the round and progress.
-            </p>
-
-            <form
-              id="invest-access-form"
-              action="https://formspree.io/f/mgvdnkao"
-              method="POST"
-              style="display:flex; flex-direction:column; gap:1rem;">
-
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="you@company.com"
-                style="
-                    padding: 1rem 1.25rem;
-                    border-radius: 10px;
-                    border: 1px solid rgba(98, 182, 203, 0.4);
-                    font-size: 1rem;
-                    background: rgba(255, 255, 255, 0.15);
-                    color: #ffffff;
-                    font-family: 'Work Sans', sans-serif;
-                    transition: all 0.2s ease;"
-                onfocus="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.borderColor='#62B6CB';"
-                onblur="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.borderColor='rgba(98, 182, 203, 0.4)';">
-
-              <!-- Helpful metadata -->
-              <input type="hidden" name="source" value="invest-gate">
-              <input type="hidden" name="page" value="lexios.ai/invest">
-
-              <button
-                type="submit"
-                style="
-                    padding: 1rem 1.5rem;
-                    border-radius: 10px;
-                    border: none;
-                    background: #62B6CB;
-                    color: #0D1B2A;
-                    font-weight: 700;
-                    font-size: 1rem;
-                    cursor: pointer;
-                    font-family: 'Work Sans', sans-serif;
-                    transition: all 0.2s ease;
-                    box-shadow: 0 4px 12px rgba(98, 182, 203, 0.3);"
-                onmouseover="this.style.background='#7ECFE0'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(98, 182, 203, 0.4)';"
-                onmouseout="this.style.background='#62B6CB'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(98, 182, 203, 0.3)';">
-                Continue to Investor Packet →
-              </button>
-
-              <div id="invest-error" style="
-                  display: none;
-                  color: #FF6B6B;
-                  font-size: 0.9rem;
-                  background: rgba(255, 107, 107, 0.1);
-                  padding: 0.75rem;
-                  border-radius: 8px;
-                  border: 1px solid rgba(255, 107, 107, 0.3);">
-                Something went wrong. Please try again.
-              </div>
-            </form>
-
-            <div id="invest-success" style="
-                display: none;
-                margin-top: 1rem;
-                color: #06D6A0;
-                font-size: 1rem;
-                background: rgba(6, 214, 160, 0.1);
-                padding: 0.875rem;
-                border-radius: 8px;
-                border: 1px solid rgba(6, 214, 160, 0.3);
-                font-weight: 600;">
-              Thank you — loading the investor packet…
-            </div>
-
-            <p style="
-                margin-top: 2rem;
-                font-size: 0.8125rem;
-                color: rgba(255, 255, 255, 0.6);
-                line-height: 1.5;">
-                Confidential information. By accessing this packet, you agree to keep all information strictly confidential.
-            </p>
         </div>
     </div>
 
-    <!-- Actual content (hidden until email entered) -->
-    <div id="invest-content" style="display:none;">
-
-        <!-- Navigation -->
-        <nav class="nav" id="mainNav">
-            <div class="nav-content">
-                <a href="index.html" class="nav-logo">
-                    <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(12, 12)">
-                            <rect x="0" y="0" width="24" height="24"
-                                  transform="rotate(45 12 12)"
-                                  fill="#62B6CB"
-                                  stroke="none"/>
-                            <rect x="2" y="2" width="20" height="20"
-                                  transform="rotate(45 12 12)"
-                                  fill="none"
-                                  stroke="#0D1B2A"
-                                  stroke-width="3"/>
-                        </g>
-                    </svg>
-                    <div class="nav-title">LEXIOS</div>
-                </a>
+    <!-- 2: PROBLEM -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">The $170 Billion Problem</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Construction loses billions annually to documentation inefficiencies</div>
             </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(12, 12)">
-                            <rect x="0" y="0" width="24" height="24"
-                                  transform="rotate(45 12 12)"
-                                  fill="currentColor"
-                                  stroke="none"/>
-                        </g>
-                    </svg>
-                    Seed Investment Opportunity
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-value">5%</div>
+                    <div class="card-label">Project Value Lost</div>
+                    <div class="card-desc">To documentation errors and rework</div>
                 </div>
-                <h1>
-                    The Twilio for<br>
-                    <span class="gradient-text">Construction Documents</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Pure API infrastructure following the proven Twilio and Stripe playbook. We don't build apps—we power them. Every construction software company needs AI capabilities. We provide instant AI through simple APIs.
-                </p>
-
-                <div class="hero-grid">
-                    <div class="hero-card">
-                        <div class="card-label">Round Size</div>
-                        <div class="card-value blue">$3.5M</div>
-                        <div class="card-description">Seed funding round</div>
-                    </div>
-
-                    <div class="hero-card">
-                        <div class="card-label">Valuation Cap</div>
-                        <div class="card-value">$15M</div>
-                        <div class="card-description">Post-money SAFE</div>
-                    </div>
-
-                    <div class="hero-card">
-                        <div class="card-label">Gross Margins</div>
-                        <div class="card-value cyan">85%</div>
-                        <div class="card-description">Best-in-class SaaS</div>
-                    </div>
-
-                    <div class="hero-card">
-                        <div class="card-label">Cost Reduction</div>
-                        <div class="card-value emerald">99.8%</div>
-                        <div class="card-description">Proven technology</div>
-                    </div>
+                <div class="card">
+                    <div class="card-value">30%</div>
+                    <div class="card-label">Time Wasted</div>
+                    <div class="card-desc">Searching for information</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">550K</div>
+                    <div class="card-label">Worker Shortage</div>
+                    <div class="card-desc">Forcing immediate automation</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">45 min</div>
+                    <div class="card-label">Average Search Time</div>
+                    <div class="card-desc">While crews wait at $1,000/hour</div>
                 </div>
             </div>
-        </section>
-
-        <!-- Executive Summary -->
-        <section class="section">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Executive Summary</div>
-                    <h2 class="section-title">$3.5M Seed Round at $15M Valuation Cap</h2>
-                    <p class="section-description">
-                        YC SAFE with 20% discount. 18-month runway to $2-3M ARR and Series A metrics. Pure API play following Twilio/Stripe playbook.
-                    </p>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">99.8%*</div>
-                        <div class="stat-label">Cost Reduction</div>
-                        <div class="stat-description">$4.08 vs $2,000 for 140-page analysis</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">90-95%</div>
-                        <div class="stat-label">Accuracy</div>
-                        <div class="stat-description">Validated on real construction projects</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">85%</div>
-                        <div class="stat-label">Gross Margins</div>
-                        <div class="stat-description">Best-in-class SaaS economics</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">18 months</div>
-                        <div class="stat-label">First-Mover Window</div>
-                        <div class="stat-description">Before incumbents can respond</div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3>Why This Is THE Moment</h3>
-                    <ul>
-                        <li><strong>Oct 2023:</strong> GPT-4V Launch - AI can finally read construction drawings</li>
-                        <li><strong>550K Worker Shortage:</strong> Industry forced to automate now</li>
-                        <li><strong>18-24 Month Window:</strong> First-mover advantage before incumbents respond</li>
-                        <li><strong>2,000+ Software Companies:</strong> All need AI capabilities immediately</li>
-                        <li><strong>Proven API Playbook:</strong> Twilio ($15B), Stripe ($95B), Plaid ($13B)</li>
-                        <li><strong>Construction Domain Expertise:</strong> 5+ years experience, Georgia Tech MBA</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Opportunity -->
-        <section class="section" style="background: var(--gray-50);">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Market Opportunity</div>
-                    <h2 class="section-title">The $170 Billion Problem</h2>
-                    <p class="section-description">
-                        Every construction project generates 5,000-50,000 pages of critical documentation. Finding one answer takes 45 minutes while crews wait at $1,000/hour. The result: 5% of every project lost to documentation errors and rework.
-                    </p>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">5%</div>
-                        <div class="stat-label">Project Loss</div>
-                        <div class="stat-description">Of every project lost to documentation errors and rework</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">550K</div>
-                        <div class="stat-label">Worker Shortage</div>
-                        <div class="stat-description">Forcing radical automation across the industry</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$170B</div>
-                        <div class="stat-label">Annual Waste</div>
-                        <div class="stat-description">Wasted on preventable documentation mistakes</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">30%</div>
-                        <div class="stat-label">Time Searching</div>
-                        <div class="stat-description">Of construction time spent searching for information</div>
-                    </div>
-                </div>
-
-                <div class="info-box" style="margin-top: 3rem;">
-                    <h3>Perfect Timing: The AI Capability Just Arrived</h3>
-                    <p>GPT-4V with construction drawing capabilities launched October 2023. We have an 18-24 month window before Autodesk, Procore, and Oracle build competing solutions.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Solution -->
-        <section class="section">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Our Solution</div>
-                    <h2 class="section-title">API Infrastructure for Construction AI</h2>
-                    <p class="section-description">
-                        We don't build apps. We power them. Every construction software company needs AI capabilities. None can afford the $10M+ and 2 years to build it themselves. Lexios provides instant AI through simple APIs.
-                    </p>
-                </div>
-
-                <div class="info-box" style="margin-bottom: 3rem;">
-                    <h3>Add AI to Any Construction App with 3 Lines</h3>
-                    <pre style="background: var(--gray-50); padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-top: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; line-height: 1.6;"><code>// Add AI to any construction app with 3 lines
-const analysis = await lexios.analyze({
-  documents: ['plans.pdf', 'specs.pdf'],
-  query: 'Find all plumbing conflicts'
-});
-// Returns structured data in 7 seconds vs 45 minutes manually</code></pre>
-                </div>
-
-                <div class="feature-grid">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">📑</div>
-                        <h3>Document Extract API</h3>
-                        <div class="price">$0.10-0.30 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/page</span></div>
-                        <p>Pull structured data from any construction document. Returns structured JSON in 7 seconds vs 45 minutes manually.</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">✅</div>
-                        <h3>Code Compliance API</h3>
-                        <div class="price">$1-5 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/check</span></div>
-                        <p>Verify against building codes in all 50 states. Automated compliance checking for instant permit readiness.</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">🔍</div>
-                        <h3>Conflict Detection API</h3>
-                        <div class="price">$5-20 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/analysis</span></div>
-                        <p>Find clashes between drawings and specs. Catch errors before they become costly field changes.</p>
-                    </div>
-                </div>
-
-                <div class="warning-box" style="margin-top: 3rem;">
-                    <h3>Not Another ChatGPT Wrapper</h3>
-                    <p>We use foundation models (GPT-4V, Claude, Gemini) within construction-specific frameworks. Our value: 5+ years of construction expertise, building code databases for all 50 states, and deterministic outputs that enterprises require.</p>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Who Uses Our APIs</h3>
-
-                <div class="feature-grid">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none"/>
-                            </svg>
-                        </div>
-                        <h3>GC Software</h3>
-                        <div class="stat-label" style="margin-bottom: 0.75rem;">Procore, BuilderTrend</div>
-                        <p>Takeoff automation, RFI generation, change orders</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 3L8 3L12 8L8 13L3 13L3 3Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <circle cx="17" cy="8" r="4" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <path d="M14 18L20 18L20 22L14 22L14 18Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                            </svg>
-                        </div>
-                        <h3>Design Tools</h3>
-                        <div class="stat-label" style="margin-bottom: 0.75rem;">Autodesk, Revit Partners</div>
-                        <p>Code compliance, conflict detection, spec checks</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="3" y="3" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <path d="M8 3L8 21M16 3L16 21M3 8L21 8M3 16L21 16" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3>Gov Systems</h3>
-                        <div class="stat-label" style="margin-bottom: 0.75rem;">Permit & Municipal</div>
-                        <p>Automated permit review, compliance checking</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" fill="none"/>
-                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
-                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
-                            </svg>
-                        </div>
-                        <h3>Owners</h3>
-                        <div class="stat-label" style="margin-bottom: 0.75rem;">Facility Management</div>
-                        <p>Progress verification, quality assurance</p>
-                    </div>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Proven Performance</h3>
-
-                <div class="data-table fade-in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Metric</th>
-                                <th>Lexios AI</th>
-                                <th>Manual Process</th>
-                                <th>Improvement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Metric"><strong>Cost (140 pages)</strong></td>
-                                <td data-label="Lexios Performance">$4.08</td>
-                                <td data-label="Manual Process">$2,000</td>
-                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">99.8% reduction*</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Metric"><strong>Processing Time</strong></td>
-                                <td data-label="Lexios Performance">7 minutes</td>
-                                <td data-label="Manual Process">40 hours</td>
-                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">99.7% faster*</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Metric"><strong>Accuracy</strong></td>
-                                <td data-label="Lexios Performance">90-95%</td>
-                                <td data-label="Manual Process">95-98%</td>
-                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">Near-human</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Metric"><strong>Consistency</strong></td>
-                                <td data-label="Lexios Performance">99.99%</td>
-                                <td data-label="Manual Process">Variable</td>
-                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">Deterministic</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Metric"><strong>Token Efficiency</strong></td>
-                                <td data-label="Lexios Performance">98.7% reduction*</td>
-                                <td data-label="Manual Process">N/A</td>
-                                <td data-label="Improvement" style="color: var(--success-green); font-weight: 600;">Industry-leading</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="info-box" style="margin-top: 3rem;">
-                    <h3>Model Context Protocol (MCP) Architecture</h3>
-                    <ul>
-                        <li>7 specialized servers for different construction domains</li>
-                        <li>Deterministic outputs for enterprise reliability</li>
-                        <li>Multi-model voting for maximum accuracy</li>
-                        <li>Building code databases for all 50 states</li>
-                        <li>98.7% token reduction* through intelligent caching</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Business Model -->
-        <section class="section" style="background: var(--gray-50);">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Market Opportunity</div>
-                    <h2 class="section-title">$10B Market Following Proven Playbook</h2>
-                    <p class="section-description">
-                        Twilio ($15B), Stripe ($95B), and Plaid ($13B) proved the API infrastructure model. Every industry needs its API layer. Construction is the last $12 trillion industry without one.
-                    </p>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">API Success Stories</h3>
-
-                <div class="data-table fade-in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Company</th>
-                                <th>Market Cap</th>
-                                <th>What They Did</th>
-                                <th>What We Do</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Company"><strong>Twilio</strong></td>
-                                <td data-label="Market Cap">$15B</td>
-                                <td data-label="What They Did">APIs for communications</td>
-                                <td data-label="What We Do">APIs for construction docs</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Company"><strong>Stripe</strong></td>
-                                <td data-label="Market Cap">$95B</td>
-                                <td data-label="What They Did">APIs for payments</td>
-                                <td data-label="What We Do">APIs for compliance</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Company"><strong>Plaid</strong></td>
-                                <td data-label="Market Cap">$13B</td>
-                                <td data-label="What They Did">APIs for banking</td>
-                                <td data-label="What We Do">APIs for building data</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$0.25</div>
-                        <div class="stat-label">Per API Call</div>
-                        <div class="stat-description">Usage-based pricing that scales with customers</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$10K</div>
-                        <div class="stat-label">MRR Per Partner</div>
-                        <div class="stat-description">Average software company integration</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">15x</div>
-                        <div class="stat-label">LTV/CAC Ratio</div>
-                        <div class="stat-description">Exceptional unit economics</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">130%</div>
-                        <div class="stat-label">Net Retention</div>
-                        <div class="stat-description">Usage grows with customers over time</div>
-                    </div>
-                </div>
-
-                <div class="info-box" style="margin-top: 3rem;">
-                    <h3>Target Customers</h3>
-                    <ul>
-                        <li><strong>Primary:</strong> 2,000+ construction software companies (Procore ecosystem, Autodesk partners)</li>
-                        <li><strong>Secondary:</strong> Enterprise construction firms needing custom integrations</li>
-                        <li><strong>Premium:</strong> Data center builders with complex documentation needs</li>
-                    </ul>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Conservative Path to $50M ARR</h3>
-
-                <div class="data-table fade-in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Year</th>
-                                <th>API Partners</th>
-                                <th>Revenue</th>
-                                <th>Growth</th>
-                                <th>Gross Margin</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Year">Year 1</td>
-                                <td data-label="API Partners">10</td>
-                                <td data-label="Revenue">$600K</td>
-                                <td data-label="Growth">—</td>
-                                <td data-label="Gross Margin">70%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Year">Year 2</td>
-                                <td data-label="API Partners">25</td>
-                                <td data-label="Revenue">$2.5M</td>
-                                <td data-label="Growth">317%</td>
-                                <td data-label="Gross Margin">80%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Year">Year 3</td>
-                                <td data-label="API Partners">75</td>
-                                <td data-label="Revenue">$9M</td>
-                                <td data-label="Growth">260%</td>
-                                <td data-label="Gross Margin">85%</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Year">Year 4</td>
-                                <td data-label="API Partners">200</td>
-                                <td data-label="Revenue">$25M</td>
-                                <td data-label="Growth">178%</td>
-                                <td data-label="Gross Margin">87%</td>
-                            </tr>
-                            <tr class="highlight-row">
-                                <td data-label="Year">Year 5</td>
-                                <td data-label="API Partners">400</td>
-                                <td data-label="Revenue">$50M</td>
-                                <td data-label="Growth">100%</td>
-                                <td data-label="Gross Margin">90%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Exit Strategy -->
-        <section class="section" style="background: var(--gray-50);">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Exit Strategy</div>
-                    <h2 class="section-title">$500M-$750M Exit Opportunity</h2>
-                    <p class="section-description">
-                        5-7 years to exit targeting $50M+ ARR at 10-15x revenue multiple. Strategic acquirers: Autodesk, Procore, Oracle, Trimble.
-                    </p>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem; text-align: center;">Comparable Construction Tech Exits</h3>
-
-                <div class="data-table fade-in">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Company</th>
-                                <th>Acquirer</th>
-                                <th>Exit Value</th>
-                                <th>Revenue Multiple</th>
-                                <th>Year</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Company">PlanGrid</td>
-                                <td data-label="Exit Value">$875M</td>
-                                <td data-label="Revenue Multiple">~14x</td>
-                                <td data-label="Acquirer">Autodesk</td>
-                                <td data-label="Year">2018</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Company">Levelset</td>
-                                <td data-label="Exit Value">$500M</td>
-                                <td data-label="Revenue Multiple">~20x</td>
-                                <td data-label="Acquirer">Procore</td>
-                                <td data-label="Year">2021</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Company">BuildingConnected</td>
-                                <td data-label="Exit Value">$275M</td>
-                                <td data-label="Revenue Multiple">~5.5x</td>
-                                <td data-label="Acquirer">Autodesk</td>
-                                <td data-label="Year">2018</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="stats-grid" style="margin-top: 3rem;">
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">5-7 years</div>
-                        <div class="stat-label">Timeline to Exit</div>
-                        <div class="stat-description">Strategic acquisition timeframe</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$50M+</div>
-                        <div class="stat-label">Target ARR</div>
-                        <div class="stat-description">At time of exit</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">10-15x</div>
-                        <div class="stat-label">Expected Multiple</div>
-                        <div class="stat-description">Revenue multiple at exit</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$500M-$750M</div>
-                        <div class="stat-label">Exit Range</div>
-                        <div class="stat-description">Based on comparable exits</div>
-                    </div>
-                </div>
-
-                <div class="info-box" style="margin-top: 3rem;">
-                    <h3>Strategic Acquirers</h3>
-                    <p style="margin-bottom: 1rem;">Autodesk, Procore, Oracle, and Trimble all need AI capabilities to stay competitive. We're building the critical infrastructure layer they'll need to acquire.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team -->
-        <section class="section">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Team</div>
-                    <h2 class="section-title">Leadership & Execution</h2>
-                    <p class="section-description">
-                        Deep construction expertise combined with technical excellence. Building the team to execute on this massive opportunity.
-                    </p>
-                </div>
-
-                <div class="feature-grid feature-grid-2">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon" style="background: var(--technical-cyan); color: var(--blueprint-navy); font-size: 1.5rem; font-weight: 700;">
-                            AS
-                        </div>
-                        <h3>Amruth Surapaneni</h3>
-                        <div style="color: var(--technical-cyan); font-weight: 600; margin-bottom: 1rem;">Founder & CEO</div>
-                        <p>Georgia Tech MBA, Class of 2023. 5+ years construction industry experience including Douglas County permit office. Deep understanding of building codes and documentation challenges.</p>
-                    </div>
-
-                    <div class="feature-card fade-in" style="border-style: dashed; opacity: 0.75;">
-                        <div class="feature-icon" style="background: var(--grid-grey); color: var(--text-medium); font-size: 1.75rem;">
-                            ?
-                        </div>
-                        <h3>CTO/Co-founder</h3>
-                        <div style="color: var(--text-medium); font-weight: 600; margin-bottom: 1rem;">Q1 2026 Hire</div>
-                        <p>Enterprise SaaS and AI/ML expertise. Will lead technical architecture and product development. 15-20% equity package.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Use of Funds -->
-        <section class="section" style="background: var(--gray-50);">
-            <div class="section-content">
-                <div class="section-header">
-                    <div class="section-badge">Use of Funds</div>
-                    <h2 class="section-title">Use of $3.5M: 18 Months to Series A</h2>
-                    <p class="section-description">
-                        Clear milestones to reach Series A metrics: 100+ API partners, $250K+ MRR ($3M ARR), proven unit economics.
-                    </p>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">Timeline</h3>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Q1 - Foundation (Months 1-3)</h3>
-                            <ul>
-                                <li>Hire CTO and 3 engineers</li>
-                                <li>Complete API v1.0</li>
-                                <li>3 pilot API partners</li>
-                                <li><strong>Target: $25K MRR</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Q2 - Market Entry (Months 4-6)</h3>
-                            <ul>
-                                <li>Launch developer portal</li>
-                                <li>10 paying API partners</li>
-                                <li>Published API documentation</li>
-                                <li><strong>Target: $50K MRR</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Q3-Q4 - Scale (Months 7-12)</h3>
-                            <ul>
-                                <li>50+ API partners</li>
-                                <li>Major software integration</li>
-                                <li>Developer conference presence</li>
-                                <li><strong>Target: $150K MRR</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3>Q5-Q6 - Series A Ready (Months 13-18)</h3>
-                            <ul>
-                                <li>100+ API partners</li>
-                                <li>$250K+ MRR ($3M ARR)</li>
-                                <li>Proven unit economics</li>
-                                <li><strong>Ready for $15M Series A</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Budget Allocation</h3>
-
-                <div class="stats-grid stats-grid-5">
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$1.75M</div>
-                        <div class="stat-label">Engineering</div>
-                        <div class="stat-description">50% - CTO + 5 engineers, infrastructure</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$700K</div>
-                        <div class="stat-label">Sales & DevRel</div>
-                        <div class="stat-description">20% - API evangelism, partnerships</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$525K</div>
-                        <div class="stat-label">Operations</div>
-                        <div class="stat-description">15% - CEO ($150K/yr), legal, finance</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$350K</div>
-                        <div class="stat-label">AI & Data</div>
-                        <div class="stat-description">10% - Model costs, building codes</div>
-                    </div>
-
-                    <div class="stat-card fade-in">
-                        <div class="stat-value">$175K</div>
-                        <div class="stat-label">Reserve</div>
-                        <div class="stat-description">5% - Buffer for opportunities</div>
-                    </div>
-                </div>
-
-                <p style="text-align: center; margin-top: 2rem; color: var(--text-medium); font-size: 0.9375rem; font-style: italic;">
-                    *Operations includes CEO salary of $150K annually ($225K for 18 months), plus legal, accounting, and infrastructure costs.
-                </p>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <div class="cta-section" style="margin: 0 2rem 4rem;">
-            <h2>Investment Terms</h2>
-            <p style="margin-bottom: 1.5rem;">
-                <strong>Round Size:</strong> $3.5M | <strong>Structure:</strong> YC SAFE | <strong>Minimum:</strong> $100K | <strong>Target Close:</strong> Q1 2025
-            </p>
-            <p>
-                This is a once-in-a-generation opportunity to become the critical infrastructure layer for a $12 trillion industry. The technology is proven. The market is ready. The time is now.
-            </p>
         </div>
+    </div>
 
-        <!-- Contact Section -->
-        <section class="section" id="contact">
-            <div class="section-content" style="max-width: 600px; text-align: center;">
-                <div style="margin-bottom: 2rem;">
-                    <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="translate(12, 12)">
-                            <rect x="0" y="0" width="24" height="24"
-                                  transform="rotate(45 12 12)"
-                                  fill="#62B6CB"
-                                  stroke="none"/>
-                            <rect x="2" y="2" width="20" height="20"
-                                  transform="rotate(45 12 12)"
-                                  fill="none"
-                                  stroke="#0D1B2A"
-                                  stroke-width="3"/>
-                        </g>
-                    </svg>
+    <!-- 3: SOLUTION -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Three Powerful APIs</div>
+                <div class="accent-line" style="margin: 0.75rem 0 1rem;"></div>
+                <div class="subtitle">Simple developer-friendly APIs that transform construction documentation</div>
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-num">1</div>
+                    <div class="feature-content">
+                        <div class="feature-title">Document Extract API</div>
+                        <div class="feature-desc">Pull structured data from any construction document. 90-95% accuracy. 7 minutes vs 40 hours manual.</div>
+                        <div class="feature-price">$0.10-0.30/page</div>
+                    </div>
                 </div>
-
-                <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Amruth Surapaneni</h3>
-                <div style="color: var(--technical-cyan); font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Founder & CEO</div>
-
-                <div style="color: var(--text-medium); line-height: 1.8;">
-                    <p>Georgia Tech MBA, Class of 2023</p>
-                    <p>5+ Years Construction Experience</p>
-                    <p style="margin-bottom: 2rem;">Building Codes & Permit Expert</p>
-
-                    <div style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
-                        <a href="mailto:invest@lexios.ai" style="color: var(--blueprint-navy); text-decoration: none; font-weight: 600; font-size: 1.125rem;">invest@lexios.ai</a>
-                        <span style="color: var(--text-medium); margin: 0 0.5rem;">|</span>
-                        <a href="mailto:amruth@lexios.ai" style="color: var(--blueprint-navy); text-decoration: none; font-weight: 600; font-size: 1.125rem;">amruth@lexios.ai</a>
+                <div class="feature-item">
+                    <div class="feature-num">2</div>
+                    <div class="feature-content">
+                        <div class="feature-title">Code Compliance API</div>
+                        <div class="feature-desc">Instant verification against all 50 states' building codes. Automated compliance checking.</div>
+                        <div class="feature-price">$1-5/check</div>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num">3</div>
+                    <div class="feature-content">
+                        <div class="feature-title">Conflict Detection API</div>
+                        <div class="feature-desc">Find clashes between drawings and specifications automatically. Catch errors before they're costly.</div>
+                        <div class="feature-price">$5-20/analysis</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p style="margin-bottom: 1rem; font-size: 0.8125rem; color: var(--text-medium); line-height: 1.6;">
-                    *Performance metrics based on architectural design patterns and preliminary validation testing. Actual results may vary depending on document type, complexity, and implementation specifics. Cost comparisons estimated using typical industry pricing for manual review services.
-                </p>
-                <p style="margin-bottom: 0.5rem;">Confidential Investment Memorandum | November 2025</p>
-                <div class="footer-legal">
-                    This document contains confidential and proprietary information. Distribution without written consent is prohibited.
-                    <br>© 2025 Lexios. All rights reserved.
+    <!-- 4: CUSTOMERS -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Who Uses Our APIs</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Value across the entire construction ecosystem</div>
+            </div>
+            <div class="grid grid-4">
+                <div class="segment-card">
+                    <div class="segment-icon">🏗️</div>
+                    <div class="segment-title">GC Software</div>
+                    <div class="segment-subtitle">Procore, BuilderTrend</div>
+                    <ul class="segment-list">
+                        <li>Takeoff automation</li>
+                        <li>RFI generation</li>
+                        <li>Change orders</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">✏️</div>
+                    <div class="segment-title">Design Tools</div>
+                    <div class="segment-subtitle">Autodesk, Revit Partners</div>
+                    <ul class="segment-list">
+                        <li>Code compliance</li>
+                        <li>Conflict detection</li>
+                        <li>Spec checks</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">🏛️</div>
+                    <div class="segment-title">Gov Systems</div>
+                    <div class="segment-subtitle">Permit & Municipal</div>
+                    <ul class="segment-list">
+                        <li>Automated permits</li>
+                        <li>Digital plan rooms</li>
+                        <li>Compliance checking</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">🏢</div>
+                    <div class="segment-title">Owners</div>
+                    <div class="segment-subtitle">Facility Management</div>
+                    <ul class="segment-list">
+                        <li>Progress tracking</li>
+                        <li>Quality assurance</li>
+                        <li>Doc organization</li>
+                    </ul>
                 </div>
             </div>
-        </footer>
+        </div>
+    </div>
 
-    </div> <!-- end #invest-content -->
+    <!-- 5: MARKET -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Massive Market Opportunity</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">$8-10B construction software market with strong tailwinds</div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-value">$8-10B</div>
+                    <div class="card-label">Total Market Size</div>
+                    <div class="card-desc">Construction Software</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">8-10%</div>
+                    <div class="card-label">Annual Growth</div>
+                    <div class="card-desc">CAGR</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">2,000+</div>
+                    <div class="card-label">API Customers</div>
+                    <div class="card-desc">Software Companies</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">$10K</div>
+                    <div class="card-label">Avg Partner MRR</div>
+                    <div class="card-desc">Per Integration</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <!-- 6: REVENUE -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Conservative Path to $50M ARR</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">API-first business model with exceptional unit economics</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column;">
+                <div class="chart-box">
+                    <div class="chart-bars">
+                        <div class="chart-bar">
+                            <div class="bar-fill" style="height: 12%;">
+                                <div class="bar-value">$600K</div>
+                            </div>
+                            <div class="bar-label">Year 1</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-fill" style="height: 25%;">
+                                <div class="bar-value">$2.5M</div>
+                                <div class="bar-growth">↑ 317%</div>
+                            </div>
+                            <div class="bar-label">Year 2</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-fill" style="height: 50%;">
+                                <div class="bar-value">$9M</div>
+                                <div class="bar-growth">↑ 260%</div>
+                            </div>
+                            <div class="bar-label">Year 3</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-fill" style="height: 75%;">
+                                <div class="bar-value">$25M</div>
+                                <div class="bar-growth">↑ 178%</div>
+                            </div>
+                            <div class="bar-label">Year 4</div>
+                        </div>
+                        <div class="chart-bar">
+                            <div class="bar-fill" style="height: 100%;">
+                                <div class="bar-value">$50M</div>
+                                <div class="bar-growth">↑ 100%</div>
+                            </div>
+                            <div class="bar-label">Year 5</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-4">
+                    <div class="card">
+                        <div class="card-value">85%</div>
+                        <div class="card-label">Gross Margins</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">15x</div>
+                        <div class="card-label">LTV/CAC</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">$0.25</div>
+                        <div class="card-label">Avg API Price</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">$10K</div>
+                        <div class="card-label">MRR/Partner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+    <!-- 7: EXIT -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">$500M-$750M Exit Opportunity</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Strong comparable acquisitions validate the opportunity</div>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column;">
+                <div class="data-table">
+                    <div class="table-header">
+                        <div>Company</div>
+                        <div>Exit Value</div>
+                        <div>Revenue Multiple</div>
+                        <div>Acquirer</div>
+                        <div>Year</div>
+                    </div>
+                    <div class="table-row">
+                        <div>PlanGrid</div>
+                        <div class="highlight">$875M</div>
+                        <div>~14x</div>
+                        <div>Autodesk</div>
+                        <div>2018</div>
+                    </div>
+                    <div class="table-row">
+                        <div>Levelset</div>
+                        <div class="highlight">$500M</div>
+                        <div>~20x</div>
+                        <div>Procore</div>
+                        <div>2021</div>
+                    </div>
+                    <div class="table-row">
+                        <div>BuildingConnected</div>
+                        <div class="highlight">$275M</div>
+                        <div>~5.5x</div>
+                        <div>Autodesk</div>
+                        <div>2018</div>
+                    </div>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-value">5-7 years</div>
+                        <div class="card-label">Timeline to Exit</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">$50M+</div>
+                        <div class="card-label">Target ARR</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-value">10-15x</div>
+                        <div class="card-label">Expected Multiple</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+    <!-- 8: TIMELINE -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">18-Month Path to Series A</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Clear milestones to $3M ARR</div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <div class="timeline-q">Q1</div>
+                    <div class="timeline-phase">Foundation</div>
+                    <div class="timeline-mrr">$25K MRR</div>
+                    <ul class="timeline-list">
+                        <li>Hire CTO + 2 engineers</li>
+                        <li>Launch beta APIs</li>
+                        <li>3 pilot customers</li>
+                    </ul>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-q">Q2</div>
+                    <div class="timeline-phase">Market Entry</div>
+                    <div class="timeline-mrr">$50K MRR</div>
+                    <ul class="timeline-list">
+                        <li>Developer portal</li>
+                        <li>10 paying partners</li>
+                        <li>Published docs</li>
+                    </ul>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-q">Q3-Q4</div>
+                    <div class="timeline-phase">Scale</div>
+                    <div class="timeline-mrr">$150K MRR</div>
+                    <ul class="timeline-list">
+                        <li>50+ API partners</li>
+                        <li>Major integrations</li>
+                        <li>Dev conferences</li>
+                    </ul>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-q">Q5-Q6</div>
+                    <div class="timeline-phase">Series A Ready</div>
+                    <div class="timeline-mrr">$250K+ MRR</div>
+                    <ul class="timeline-list">
+                        <li>100+ API partners</li>
+                        <li>Proven economics</li>
+                        <li>Ready for $15M</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        // Navbar scroll effect
-        const nav = document.getElementById('mainNav');
-        let lastScroll = 0;
+    <!-- 9: WHY NOW -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Why Now Is The Perfect Time</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Multiple converging factors create unprecedented opportunity</div>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-number">1</div>
+                    <div class="why-content">
+                        <h4>Technology Inflection</h4>
+                        <p>GPT-4V with vision capabilities only available since October 2023</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">2</div>
+                    <div class="why-content">
+                        <h4>Labor Crisis</h4>
+                        <p>550,000 worker shortage forcing immediate automation adoption</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">3</div>
+                    <div class="why-content">
+                        <h4>Market Pull</h4>
+                        <p>Every construction software company needs AI capabilities now</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">4</div>
+                    <div class="why-content">
+                        <h4>18-Month Window</h4>
+                        <p>First-mover advantage before incumbents respond</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        if (nav) {
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
+    <!-- 10: TECH -->
+    <div class="slide">
+        <div class="slide-content">
+            <div>
+                <div class="title">Proven Technology</div>
+                <div class="accent-line" style="margin: 1rem 0 1.5rem;"></div>
+                <div class="subtitle">Not another ChatGPT wrapper. Real construction expertise.</div>
+            </div>
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-value">99.8%</div>
+                    <div class="card-label">Cost Reduction</div>
+                    <div class="card-desc">$4.08 vs $2,000</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">7 min</div>
+                    <div class="card-label">Processing Time</div>
+                    <div class="card-desc">vs 40 hours manual</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">90-95%</div>
+                    <div class="card-label">Accuracy</div>
+                    <div class="card-desc">On document extraction</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">98.7%</div>
+                    <div class="card-label">Token Reduction</div>
+                    <div class="card-desc">Intelligent caching</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                if (currentScroll > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
+    <!-- 11: CLOSING -->
+    <div class="slide">
+        <div class="slide-content">
+            <div style="text-align: center;">
+                <div class="title">Join Us in Building the Future</div>
+                <div class="accent-line" style="margin: 1rem auto 1.5rem;"></div>
+            </div>
+            <div class="grid grid-4">
+                <div class="card">
+                    <div class="card-value">$3.5M</div>
+                    <div class="card-label">Seed Round</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">$15M</div>
+                    <div class="card-label">Valuation Cap</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">20%</div>
+                    <div class="card-label">Discount</div>
+                </div>
+                <div class="card">
+                    <div class="card-value">Q1 2026</div>
+                    <div class="card-label">Target Close</div>
+                </div>
+            </div>
+            <div class="cta-box">
+                <div class="cta-text">The API economy transformed fintech (Stripe), communications (Twilio), and payments (Plaid).</div>
+                <div class="cta-highlight">Now it's construction's turn.</div>
+            </div>
+            <div class="contact-box">
+                <div class="contact-name">Amruth Surapaneni, CEO & Founder</div>
+                <div class="contact-bio">Georgia Tech MBA, Class of 2023  |  5+ Years Construction Experience</div>
+                <div class="contact-email">amruth@lexios.ai  |  invest@lexios.ai</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                lastScroll = currentScroll;
-            });
-        }
+<div class="slide-counter"><span id="num">1</span> / 11</div>
+<div class="nav-controls">
+    <button class="nav-btn" onclick="prev()" id="prev">←</button>
+    <button class="nav-btn" onclick="next()" id="next">→</button>
+</div>
+<div class="instructions" id="help">Press → or Space to advance • F for fullscreen</div>
 
-        // Email gate logic for investor page
-        (function() {
-            const form = document.getElementById('invest-access-form');
-            const gate = document.getElementById('invest-gate');
-            const content = document.getElementById('invest-content');
-            const errorBox = document.getElementById('invest-error');
-            const successBox = document.getElementById('invest-success');
+<script>
+let idx = 0;
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
 
-            if (!form || !gate || !content) return;
+function show(n) {
+    slides[idx].classList.remove('active');
+    idx = n;
+    slides[idx].classList.add('active');
+    document.getElementById('num').textContent = idx + 1;
+    document.getElementById('prev').disabled = idx === 0;
+    document.getElementById('next').disabled = idx === total - 1;
+    if (idx > 0) document.getElementById('help').classList.add('fade');
+}
 
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                if (errorBox) errorBox.style.display = 'none';
+function next() { if (idx < total - 1) show(idx + 1); }
+function prev() { if (idx > 0) show(idx - 1); }
 
-                const formData = new FormData(form);
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    else if (e.key === 'f' || e.key === 'F') {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else document.documentElement.requestFullscreen();
+    }
+});
+</script>
 
-                try {
-                    const res = await fetch(form.action, {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    });
-
-                    if (res.ok) {
-                        if (successBox) successBox.style.display = 'block';
-
-                        setTimeout(function() {
-                            gate.style.display = 'none';
-                            content.style.display = 'block';
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }, 800);
-                    } else {
-                        if (errorBox) errorBox.style.display = 'block';
-                    }
-                } catch (err) {
-                    if (errorBox) errorBox.style.display = 'block';
-                }
-            });
-        })();
-    </script>
 </body>
 </html>
