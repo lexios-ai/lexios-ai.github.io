@@ -829,7 +829,7 @@
             }
         }
 
-        /* Responsive */
+        /* Responsive - Tablet */
         @media (max-width: 1024px) {
             .timeline::before {
                 left: 2rem;
@@ -853,29 +853,371 @@
             .timeline-marker {
                 left: 2rem;
             }
+
+            .hero-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
             .section {
-                padding: 4rem 1.5rem;
+                padding: 4rem 1.25rem;
             }
 
             .hero {
-                padding: 6rem 1.5rem 3rem;
+                padding: 5rem 1.25rem 3rem;
+                min-height: 100svh;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 10vw, 3rem);
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                font-size: clamp(1rem, 4vw, 1.125rem);
+                margin-bottom: 2rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+            }
+
+            .hero-card {
+                padding: 1.5rem;
+            }
+
+            .card-value {
+                font-size: 2rem;
             }
 
             .nav-content {
-                padding: 1rem 1.5rem;
+                padding: 1rem 1.25rem;
             }
 
-            .nav-actions {
+            .nav-logo svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav-title {
+                font-size: 1.125rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.75rem, 8vw, 2.5rem);
+            }
+
+            .section-description {
+                font-size: 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .data-table {
+                font-size: 0.875rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.875rem 1rem;
+            }
+
+            .data-table th {
+                font-size: 0.75rem;
+            }
+
+            /* Make tables scrollable on mobile */
+            .data-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .data-table thead,
+            .data-table tbody,
+            .data-table tr {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+
+            .data-table thead {
+                display: table-header-group;
+            }
+
+            .return-grid {
+                gap: 1.25rem;
+            }
+
+            .return-card {
+                padding: 1.75rem;
+            }
+
+            .return-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .return-value {
+                font-size: 1.125rem;
+            }
+
+            .return-value.highlight {
+                font-size: 1.75rem;
+            }
+
+            .cta-section {
+                padding: 3rem 2rem;
+                margin: 3rem 1.25rem;
+                border-radius: 12px;
+            }
+
+            .cta-section h2 {
+                font-size: clamp(1.75rem, 8vw, 2.5rem);
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-buttons {
                 flex-direction: column;
-                gap: 0.5rem;
+                align-items: stretch;
             }
 
             .btn {
-                padding: 0.5rem 1rem;
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9375rem;
+            }
+
+            .btn-white {
+                padding: 0.875rem 1.5rem;
+            }
+
+            .info-box,
+            .success-box,
+            .warning-box {
+                padding: 1.25rem;
+                margin: 1.5rem 0;
+            }
+
+            .info-box h3,
+            .success-box h3,
+            .warning-box h3 {
+                font-size: 1.125rem;
+            }
+
+            .info-box li,
+            .success-box li,
+            .warning-box li {
+                font-size: 0.9375rem;
+                margin-bottom: 0.625rem;
+            }
+
+            .timeline {
+                padding-left: 3rem;
+            }
+
+            .timeline::before {
+                left: 1rem;
+            }
+
+            .timeline-marker {
+                left: 1rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.25rem;
+            }
+
+            .timeline-item {
+                padding-left: 3rem;
+            }
+
+            .footer {
+                padding: 2rem 1.25rem 1.5rem;
+            }
+
+            .footer h4 {
+                font-size: 1rem;
+            }
+
+            .footer p,
+            .footer-legal {
                 font-size: 0.8125rem;
+            }
+        }
+
+        /* Responsive - Small Mobile */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4.5rem 1rem 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.75rem, 11vw, 2.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: clamp(0.9375rem, 4.5vw, 1rem);
+            }
+
+            .hero-badge {
+                font-size: 0.8125rem;
+                padding: 0.375rem 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-badge {
+                font-size: 0.8125rem;
+                padding: 0.3125rem 0.75rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 9vw, 2rem);
+            }
+
+            .nav-content {
+                padding: 0.875rem 1rem;
+            }
+
+            .nav-logo svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .nav-title {
+                font-size: 1rem;
+            }
+
+            .hero-card,
+            .stat-card,
+            .feature-card {
+                padding: 1.25rem;
+            }
+
+            .card-value {
+                font-size: 1.75rem;
+            }
+
+            .stat-value {
+                font-size: 2.25rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem 0.75rem;
+                font-size: 0.8125rem;
+            }
+
+            .return-card {
+                padding: 1.5rem;
+            }
+
+            .return-badge {
+                font-size: 0.6875rem;
+                padding: 0.3125rem 0.75rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+                margin: 2.5rem 1rem;
+            }
+
+            .btn,
+            .btn-white {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+            }
+
+            .timeline-content {
+                padding: 1.25rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.125rem;
+            }
+
+            .timeline-content li {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Email gate responsive */
+        @media (max-width: 768px) {
+            #invest-gate {
+                margin: 100px auto 30px !important;
+                padding: 20px 24px !important;
+                max-width: 90% !important;
+            }
+
+            #invest-gate h2 {
+                font-size: 1.25rem !important;
+            }
+
+            #invest-gate p {
+                font-size: 0.875rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #invest-gate {
+                margin: 80px auto 20px !important;
+                padding: 18px 20px !important;
+            }
+
+            #invest-gate h2 {
+                font-size: 1.125rem !important;
             }
         }
     </style>
