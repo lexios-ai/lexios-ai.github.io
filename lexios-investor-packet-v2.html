@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexios - Investment Opportunity | November 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blueprint-navy: #0D1B2A;
+            --blueprint-blue: #1B4965;
+            --technical-cyan: #62B6CB;
+            --alert-red: #E63946;
+            --success-green: #06D6A0;
+            --warning-amber: #FFB703;
+            --paper-white: #F8F9FA;
+            --grid-grey: #E9ECEF;
+            --text-dark: #1A1A1A;
+            --text-medium: #495057;
+            --text-light: #6C757D;
+            --border-color: #DEE2E6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0.75in;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-logo svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .nav-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            font-family: 'Work Sans', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        .btn {
+            padding: 0.625rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--blueprint-navy);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--blueprint-blue);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(13, 27, 42, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-medium);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--paper-white);
+            border-color: var(--text-medium);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(to bottom, var(--white) 0%, var(--paper-white) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(98, 182, 203, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(13, 27, 42, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(98, 182, 203, 0.1);
+            border: 1px solid rgba(98, 182, 203, 0.3);
+            border-radius: 50px;
+            color: var(--blueprint-navy);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--blueprint-navy) 0%, var(--technical-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            line-height: 1.7;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .hero-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .hero-card:nth-child(1) { animation-delay: 0.3s; }
+        .hero-card:nth-child(2) { animation-delay: 0.4s; }
+        .hero-card:nth-child(3) { animation-delay: 0.5s; }
+        .hero-card:nth-child(4) { animation-delay: 0.6s; }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--technical-cyan);
+        }
+
+        .card-label {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .card-value.blue { color: var(--blueprint-navy); }
+        .card-value.cyan { color: var(--technical-cyan); }
+        .card-value.emerald { color: var(--success-green); }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            margin-top: 0.5rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: rgba(98, 182, 203, 0.1);
+            color: var(--blueprint-navy);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blueprint-navy), var(--technical-cyan));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--technical-cyan);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--blueprint-navy);
+            font-family: 'Work Sans', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-description {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            margin-top: 0.75rem;
+            line-height: 1.5;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--technical-cyan);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(98, 182, 203, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blueprint-navy);
+            margin: 0.75rem 0;
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .data-table thead {
+            background: var(--paper-white);
+        }
+
+        .data-table th {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-weight: 700;
+            color: var(--text-medium);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-medium);
+        }
+
+        .data-table tbody tr {
+            transition: background 0.15s ease;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(98, 182, 203, 0.05);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .highlight-row {
+            background: rgba(98, 182, 203, 0.1) !important;
+        }
+
+        .highlight-row td {
+            font-weight: 700;
+            color: var(--blueprint-navy);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-empty {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-empty {
+            grid-column: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--technical-cyan);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px rgba(98, 182, 203, 0.2);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .timeline-quarter {
+            font-size: 0.875rem;
+            color: var(--technical-cyan);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-content li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        .timeline-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: 700;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: rgba(98, 182, 203, 0.05);
+            border: 1px solid rgba(98, 182, 203, 0.2);
+            border-left: 4px solid var(--technical-cyan);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--text-medium);
+        }
+
+        .info-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--technical-cyan);
+            font-weight: 700;
+        }
+
+        .success-box {
+            background: rgba(6, 214, 160, 0.05);
+            border-color: rgba(6, 214, 160, 0.2);
+            border-left-color: var(--success-green);
+        }
+
+        .success-box li::before {
+            color: var(--success-green);
+        }
+
+        .warning-box {
+            background: rgba(255, 183, 3, 0.05);
+            border-color: rgba(255, 183, 3, 0.2);
+            border-left-color: var(--warning-amber);
+        }
+
+        .warning-box li::before {
+            color: var(--warning-amber);
+        }
+
+        /* Return Cards */
+        .return-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .return-card {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .return-card:hover {
+            border-color: var(--technical-cyan);
+            box-shadow: 0 12px 24px rgba(98, 182, 203, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .return-card.featured {
+            border-color: var(--technical-cyan);
+            background: linear-gradient(to bottom right, var(--white), rgba(98, 182, 203, 0.05));
+        }
+
+        .return-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: rgba(98, 182, 203, 0.15);
+            color: var(--blueprint-navy);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .return-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .return-details {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .return-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .return-row:last-child {
+            border-bottom: none;
+            border-top: 2px solid var(--technical-cyan);
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .return-label {
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .return-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .return-value.highlight {
+            font-size: 2rem;
+            color: var(--blueprint-navy);
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--blueprint-navy) 0%, var(--blueprint-blue) 100%);
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--blueprint-navy);
+            padding: 0.875rem 2rem;
+            font-weight: 700;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-medium);
+            background: var(--paper-white);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-legal {
+            font-size: 0.875rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav, .btn, .cta-section {
+                display: none !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                padding: 1.5rem 0;
+            }
+
+            body {
+                background: white;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 4rem;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .timeline-empty {
+                display: none;
+            }
+
+            .timeline-marker {
+                left: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .nav-content {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <svg width="36" height="36" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(12, 12)">
+                        <rect x="0" y="0" width="24" height="24"
+                              transform="rotate(45 12 12)"
+                              fill="#62B6CB"
+                              stroke="none"/>
+                        <rect x="2" y="2" width="20" height="20"
+                              transform="rotate(45 12 12)"
+                              fill="none"
+                              stroke="#0D1B2A"
+                              stroke-width="3"/>
+                    </g>
+                </svg>
+                <div class="nav-title">LEXIOS</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(12, 12)">
+                        <rect x="0" y="0" width="24" height="24"
+                              transform="rotate(45 12 12)"
+                              fill="currentColor"
+                              stroke="none"/>
+                    </g>
+                </svg>
+                Seed Investment Opportunity
+            </div>
+            <h1>
+                The API Infrastructure for<br>
+                <span class="gradient-text">Construction Intelligence</span>
+            </h1>
+            <p class="hero-subtitle">
+                Transforming the $12 trillion construction industry with AI-powered document intelligence. Join us in building the critical infrastructure that will power the next generation of construction software.
+            </p>
+
+            <div class="hero-grid">
+                <div class="hero-card">
+                    <div class="card-label">Round Size</div>
+                    <div class="card-value blue">$2.5M</div>
+                    <div class="card-description">Seed funding round</div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="card-label">Valuation Cap</div>
+                    <div class="card-value">$12M</div>
+                    <div class="card-description">Post-money SAFE</div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="card-label">Return Potential</div>
+                    <div class="card-value cyan">14-102x</div>
+                    <div class="card-description">5-7 year exit</div>
+                </div>
+
+                <div class="hero-card">
+                    <div class="card-label">Cost Reduction</div>
+                    <div class="card-value emerald">99.8%</div>
+                    <div class="card-description">Proven technology</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Executive Summary</div>
+                <h2 class="section-title">Why Lexios, Why Now</h2>
+                <p class="section-description">
+                    Construction faces an unprecedented crisis. With 550,000 unfilled positions and $170 billion in annual waste from documentation errors, the industry desperately needs automation. We've built the technology to solve it.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-value">550K</div>
+                    <div class="stat-label">Worker Shortage</div>
+                    <div class="stat-description">Over half a million unfilled positions creating urgent need for automation</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$170B</div>
+                    <div class="stat-label">Annual Waste</div>
+                    <div class="stat-description">Documentation errors cost the industry billions every year</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">90-95%</div>
+                    <div class="stat-label">AI Accuracy</div>
+                    <div class="stat-description">Human-level accuracy validated on 140-page real projects</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$4.08</div>
+                    <div class="stat-label">Cost Per Document</div>
+                    <div class="stat-description">140 pages for $4.08 vs. $2,000 manually—99.8% reduction</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Investment Highlights</h3>
+                <ul>
+                    <li><strong>Massive Market:</strong> $10.96B construction software market growing 10.8% annually</li>
+                    <li><strong>Perfect Timing:</strong> AI capabilities + 550,000 worker shortage + industry crisis</li>
+                    <li><strong>Validated Technology:</strong> 90-95% accuracy proven on 140-page real project</li>
+                    <li><strong>Clear Business Model:</strong> API usage fees with 70-90% gross margins</li>
+                    <li><strong>Strong Exit Comparables:</strong> PlanGrid ($875M), BuildingConnected ($275M)</li>
+                    <li><strong>Experienced Founder:</strong> 5+ years construction, Georgia Tech MBA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity -->
+    <section class="section" style="background: var(--gray-50);">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Market Opportunity</div>
+                <h2 class="section-title">The $170 Billion Problem</h2>
+                <p class="section-description">
+                    Every construction project generates 5,000-50,000 pages of critical documentation, all processed manually at enormous cost and delay.
+                </p>
+            </div>
+
+            <table class="data-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Market Segment</th>
+                        <th>Current Size</th>
+                        <th>2030 Projection</th>
+                        <th>CAGR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Construction Software</td>
+                        <td>$10.96B</td>
+                        <td>$18.51B</td>
+                        <td>10.8%</td>
+                    </tr>
+                    <tr>
+                        <td>AI in Construction</td>
+                        <td>$2.9B</td>
+                        <td>$17B</td>
+                        <td>34.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Document Management</td>
+                        <td>$2.4B</td>
+                        <td>$4.8B</td>
+                        <td>14.9%</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Total Addressable</strong></td>
+                        <td><strong>$16.26B</strong></td>
+                        <td><strong>$40.31B</strong></td>
+                        <td><strong>19.9%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <h3>Conservative 5% Market Capture Strategy</h3>
+                <p>Even capturing just 5% of the construction software market gives us $20-40M ARR potential from 225 software company customers. Combined with direct contractor and architect sales, our total addressable revenue exceeds $35-70M ARR.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Our Solution</div>
+                <h2 class="section-title">Three Powerful APIs</h2>
+                <p class="section-description">
+                    Simple, developer-friendly APIs that enable any construction software to add document intelligence in minutes, not months.
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📑</div>
+                    <h3>Document Extract API</h3>
+                    <div class="price">$0.10-0.30 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/page</span></div>
+                    <p>Extract structured data from any construction document—plans, specs, RFIs, submittals. 90-95% accuracy, 7 minutes processing time.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Code Compliance API</h3>
+                    <div class="price">$1-5 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/check</span></div>
+                    <p>Verify designs against all 50 states' building codes automatically. Reduce permit rejections by 80%, save weeks of review time.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Conflict Detection API</h3>
+                    <div class="price">$5-20 <span style="font-size: 1rem; font-weight: 400; color: var(--gray-600);">/project</span></div>
+                    <p>Find inconsistencies across document sets before they become costly field changes. Catch errors that humans miss.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Proven Performance</h3>
+
+            <table class="data-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Lexios AI</th>
+                        <th>Manual Process</th>
+                        <th>Improvement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cost (140 pages)</strong></td>
+                        <td>$4.08</td>
+                        <td>$2,000</td>
+                        <td style="color: var(--success-green); font-weight: 600;">99.8% reduction</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Processing Time</strong></td>
+                        <td>7 minutes</td>
+                        <td>40 hours</td>
+                        <td style="color: var(--success-green); font-weight: 600;">99.7% faster</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accuracy</strong></td>
+                        <td>90-95%</td>
+                        <td>95-98%</td>
+                        <td style="color: var(--success-green); font-weight: 600;">Comparable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scalability</strong></td>
+                        <td>Unlimited</td>
+                        <td>Limited</td>
+                        <td style="color: var(--success-green); font-weight: 600;">∞</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consistency</strong></td>
+                        <td>99.99%</td>
+                        <td>Variable</td>
+                        <td style="color: var(--success-green); font-weight: 600;">Deterministic</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: 3rem;">
+                <h3>Competitive Advantages</h3>
+                <ul>
+                    <li><strong>98.7% Token Reduction:</strong> Proprietary MCP architecture slashes costs</li>
+                    <li><strong>Deterministic Outputs:</strong> 99.99% identical results enable caching</li>
+                    <li><strong>Domain Expertise:</strong> 5+ years construction experience embedded</li>
+                    <li><strong>API-First:</strong> Only platform built for developers</li>
+                    <li><strong>Network Effects:</strong> Each customer improves accuracy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="section" style="background: var(--gray-50);">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Business Model</div>
+                <h2 class="section-title">Revenue & Unit Economics</h2>
+                <p class="section-description">
+                    Following the proven Twilio and Stripe playbook: developer-first APIs with usage-based pricing that scales with customer success.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-value">60%</div>
+                    <div class="stat-label">API Usage Revenue</div>
+                    <div class="stat-description">$2-10K MRR per customer, scales with their success</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">Subscription Revenue</div>
+                    <div class="stat-description">$99-499 monthly tiers, self-serve model</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">10%</div>
+                    <div class="stat-label">Enterprise Revenue</div>
+                    <div class="stat-description">$2-10K monthly custom implementations</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">70-90%</div>
+                    <div class="stat-label">Gross Margins</div>
+                    <div class="stat-description">Best-in-class SaaS economics</div>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Financial Projections</h3>
+
+            <table class="data-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Customers</th>
+                        <th>ARR</th>
+                        <th>Growth</th>
+                        <th>Cash Flow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026</td>
+                        <td>20</td>
+                        <td>$280K</td>
+                        <td>—</td>
+                        <td>-$1M</td>
+                    </tr>
+                    <tr>
+                        <td>2027</td>
+                        <td>50</td>
+                        <td>$1.25M</td>
+                        <td>4.5x</td>
+                        <td>-$1M</td>
+                    </tr>
+                    <tr>
+                        <td>2028</td>
+                        <td>100</td>
+                        <td>$3.75M</td>
+                        <td>3x</td>
+                        <td>Break-even</td>
+                    </tr>
+                    <tr>
+                        <td>2029</td>
+                        <td>200</td>
+                        <td>$8M</td>
+                        <td>2.1x</td>
+                        <td>+$2M</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td>2030</td>
+                        <td>400</td>
+                        <td>$19M</td>
+                        <td>2.4x</td>
+                        <td>+$6M</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <h3>Path to Profitability</h3>
+                <ul>
+                    <li>Break-even at Month 36 with 100 customers</li>
+                    <li>Cash flow positive by end of Year 4</li>
+                    <li>No additional funding required after Series A</li>
+                    <li>Capital efficient growth with 85% gross margins</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Go-to-Market -->
+    <section class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Go-to-Market</div>
+                <h2 class="section-title">Developer-First Strategy</h2>
+                <p class="section-description">
+                    Following the proven Twilio and Stripe playbook. Make integration so simple that engineers choose us, then expand into enterprise contracts.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-quarter">Q1 2026</div>
+                        <h3>Validation Phase</h3>
+                        <ul>
+                            <li>Manual service for 10 pilot customers</li>
+                            <li>Generate case studies and testimonials</li>
+                            <li>Refine accuracy and performance</li>
+                            <li>Target: $25K revenue</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-quarter">Q2 2026</div>
+                        <h3>MVP Launch</h3>
+                        <ul>
+                            <li>Core APIs with developer portal</li>
+                            <li>Self-serve onboarding</li>
+                            <li>Developer documentation and SDKs</li>
+                            <li>Target: 25 customers, $40K MRR</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-quarter">Q3-Q4 2026</div>
+                        <h3>Platform Growth</h3>
+                        <ul>
+                            <li>All three APIs operational</li>
+                            <li>First software partnerships</li>
+                            <li>Enterprise features</li>
+                            <li>Target: 50 customers, $100K MRR</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-quarter">2027</div>
+                        <h3>Scale</h3>
+                        <ul>
+                            <li>Major platform integrations</li>
+                            <li>Government contracts</li>
+                            <li>International expansion</li>
+                            <li>Target: Series A at $1M+ MRR</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-empty"></div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Why We Win</h3>
+                <ul>
+                    <li><strong>Only API-First:</strong> Built for developers, not end users</li>
+                    <li><strong>Construction Native:</strong> Deep domain expertise embedded</li>
+                    <li><strong>95% Cheaper:</strong> $0.10 vs $10-20 per page</li>
+                    <li><strong>Instant Integration:</strong> 5 lines of code to start</li>
+                    <li><strong>No Competition:</strong> First mover in construction APIs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exit Strategy -->
+    <section class="section" style="background: var(--gray-50);">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Exit Strategy</div>
+                <h2 class="section-title">Return Potential</h2>
+                <p class="section-description">
+                    Multiple proven exit paths with strong comparable acquisitions in construction tech.
+                </p>
+            </div>
+
+            <h3 style="font-size: 1.75rem; margin-bottom: 1.5rem; text-align: center;">Comparable Exits</h3>
+
+            <table class="data-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Acquirer</th>
+                        <th>Exit Value</th>
+                        <th>Revenue Multiple</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PlanGrid</td>
+                        <td>Autodesk</td>
+                        <td>$875M</td>
+                        <td>~20x</td>
+                        <td>2018</td>
+                    </tr>
+                    <tr>
+                        <td>BuildingConnected</td>
+                        <td>Autodesk</td>
+                        <td>$275M</td>
+                        <td>~15x</td>
+                        <td>2018</td>
+                    </tr>
+                    <tr>
+                        <td>Pype</td>
+                        <td>Autodesk</td>
+                        <td>$100M</td>
+                        <td>~10x</td>
+                        <td>2021</td>
+                    </tr>
+                    <tr>
+                        <td>Assemble Systems</td>
+                        <td>Autodesk</td>
+                        <td>$60M</td>
+                        <td>~12x</td>
+                        <td>2018</td>
+                    </tr>
+                    <tr>
+                        <td>Bridgit</td>
+                        <td>Procore</td>
+                        <td>$35M</td>
+                        <td>~8x</td>
+                        <td>2022</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Return Scenarios</h3>
+
+            <div class="return-grid">
+                <div class="return-card fade-in">
+                    <div class="return-badge">Conservative Case</div>
+                    <h3>Year 5-6 Exit</h3>
+                    <div class="return-details">
+                        <div class="return-row">
+                            <span class="return-label">ARR at Exit</span>
+                            <span class="return-value">$20M</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Revenue Multiple</span>
+                            <span class="return-value">10x</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Exit Value</span>
+                            <span class="return-value">$200M</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Your Return</span>
+                            <span class="return-value highlight">$34M</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; color: var(--gray-600); font-weight: 600;">
+                        14x on $2.5M investment
+                    </div>
+                </div>
+
+                <div class="return-card featured fade-in">
+                    <div class="return-badge">Base Case</div>
+                    <h3>Year 6-7 Exit</h3>
+                    <div class="return-details">
+                        <div class="return-row">
+                            <span class="return-label">ARR at Exit</span>
+                            <span class="return-value">$40M</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Revenue Multiple</span>
+                            <span class="return-value">12x</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Exit Value</span>
+                            <span class="return-value">$480M</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Your Return</span>
+                            <span class="return-value highlight">$82M</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; color: var(--technical-cyan); font-weight: 700; font-size: 1.125rem;">
+                        33x on $2.5M investment
+                    </div>
+                </div>
+
+                <div class="return-card fade-in">
+                    <div class="return-badge">Optimistic Case</div>
+                    <h3>Year 7-8 Exit</h3>
+                    <div class="return-details">
+                        <div class="return-row">
+                            <span class="return-label">ARR at Exit</span>
+                            <span class="return-value">$75M</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Revenue Multiple</span>
+                            <span class="return-value">16x</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Exit Value</span>
+                            <span class="return-value">$1.2B</span>
+                        </div>
+                        <div class="return-row">
+                            <span class="return-label">Your Return</span>
+                            <span class="return-value highlight">$204M</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem; color: var(--gray-600); font-weight: 600;">
+                        82x on $2.5M investment
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 3rem;">
+                <h3>Strategic Acquirers</h3>
+                <ul>
+                    <li><strong>Autodesk:</strong> Most active acquirer, needs AI capabilities, $5B+ cash reserves</li>
+                    <li><strong>Procore:</strong> Platform strategy with API ecosystem, $50B market cap</li>
+                    <li><strong>Oracle:</strong> Primavera expansion, enterprise focus, strategic buyer</li>
+                    <li><strong>Microsoft:</strong> Azure AI Services expansion, enterprise sales channel</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Team</div>
+                <h2 class="section-title">Leadership & Execution</h2>
+                <p class="section-description">
+                    Deep construction expertise combined with technical excellence. Building the team to execute on this massive opportunity.
+                </p>
+            </div>
+
+            <div class="feature-grid" style="max-width: 800px; margin: 0 auto;">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: var(--technical-cyan); color: var(--blueprint-navy); font-size: 1.5rem; font-weight: 700;">
+                        AS
+                    </div>
+                    <h3>Amruth Surapaneni</h3>
+                    <div style="color: var(--technical-cyan); font-weight: 600; margin-bottom: 1rem;">Founder & CEO</div>
+                    <p>Georgia Tech MBA, Class of 2023. 5+ years construction industry experience including Douglas County permit office. Deep understanding of building codes and documentation challenges.</p>
+                </div>
+
+                <div class="feature-card fade-in" style="border-style: dashed; opacity: 0.75;">
+                    <div class="feature-icon" style="background: var(--grid-grey); color: var(--text-medium); font-size: 1.75rem;">
+                        ?
+                    </div>
+                    <h3>CTO/Co-founder</h3>
+                    <div style="color: var(--text-medium); font-weight: 600; margin-bottom: 1rem;">Q1 2026 Hire</div>
+                    <p>Enterprise SaaS and AI/ML expertise. Will lead technical architecture and product development. 15-20% equity package.</p>
+                </div>
+            </div>
+
+            <h3 style="font-size: 1.75rem; margin-top: 4rem; margin-bottom: 1.5rem; text-align: center;">Hiring Roadmap</h3>
+
+            <table class="data-table fade-in">
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Timeline</th>
+                        <th>Key Requirements</th>
+                        <th>Equity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CTO/Co-founder</strong></td>
+                        <td>Q1 2026</td>
+                        <td>Enterprise SaaS, AI/ML expertise</td>
+                        <td>15-20%</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Backend Engineer</td>
+                        <td>Q2 2026</td>
+                        <td>TypeScript, API development</td>
+                        <td>1-2%</td>
+                    </tr>
+                    <tr>
+                        <td>AI/ML Engineer</td>
+                        <td>Q2 2026</td>
+                        <td>Vision models, PyTorch</td>
+                        <td>1-2%</td>
+                    </tr>
+                    <tr>
+                        <td>Developer Relations</td>
+                        <td>Q3 2026</td>
+                        <td>Technical writing, community</td>
+                        <td>0.5-1%</td>
+                    </tr>
+                    <tr>
+                        <td>VP Sales</td>
+                        <td>Q4 2026</td>
+                        <td>Enterprise SaaS sales</td>
+                        <td>1-2%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Use of Funds -->
+    <section class="section" style="background: var(--gray-50);">
+        <div class="section-content">
+            <div class="section-header">
+                <div class="section-badge">Use of Funds</div>
+                <h2 class="section-title">Capital Allocation</h2>
+                <p class="section-description">
+                    18 months of runway to reach Series A milestones: 50+ customers, $100K+ MRR, product-market fit validated.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$1.5M</div>
+                    <div class="stat-label">Engineering</div>
+                    <div class="stat-description">60% of round - product & technology</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$500K</div>
+                    <div class="stat-label">Sales & Marketing</div>
+                    <div class="stat-description">20% of round - customer acquisition</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$375K</div>
+                    <div class="stat-label">Operations</div>
+                    <div class="stat-description">15% of round - infrastructure</div>
+                </div>
+
+                <div class="stat-card fade-in">
+                    <div class="stat-value">$125K</div>
+                    <div class="stat-label">Reserve</div>
+                    <div class="stat-description">5% buffer - contingency</div>
+                </div>
+            </div>
+
+            <table class="data-table fade-in" style="margin-top: 3rem;">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Item</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="5" style="vertical-align: top;"><strong>Engineering</strong></td>
+                        <td>CTO/Co-founder</td>
+                        <td>$200K</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Engineers (2)</td>
+                        <td>$350K</td>
+                    </tr>
+                    <tr>
+                        <td>AI/ML Engineer</td>
+                        <td>$180K</td>
+                    </tr>
+                    <tr>
+                        <td>Infrastructure & Tools</td>
+                        <td>$270K</td>
+                    </tr>
+                    <tr>
+                        <td>AI API Costs</td>
+                        <td>$500K</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" style="vertical-align: top;"><strong>Go-to-Market</strong></td>
+                        <td>Developer Relations</td>
+                        <td>$150K</td>
+                    </tr>
+                    <tr>
+                        <td>Marketing & Content</td>
+                        <td>$150K</td>
+                    </tr>
+                    <tr>
+                        <td>Conferences & Events</td>
+                        <td>$100K</td>
+                    </tr>
+                    <tr>
+                        <td>Customer Success</td>
+                        <td>$100K</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3" style="vertical-align: top;"><strong>Operations</strong></td>
+                        <td>Legal & Compliance</td>
+                        <td>$125K</td>
+                    </tr>
+                    <tr>
+                        <td>Finance & Admin</td>
+                        <td>$125K</td>
+                    </tr>
+                    <tr>
+                        <td>Office & Insurance</td>
+                        <td>$125K</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <h3>18-Month Milestones</h3>
+                <ul>
+                    <li>50+ paying customers acquired</li>
+                    <li>$100K+ MRR achieved</li>
+                    <li>All three APIs fully operational</li>
+                    <li>Product-market fit validated</li>
+                    <li>Series A metrics achieved</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section" style="margin: 0 2rem 4rem;">
+        <h2>Join Us in Transforming Construction</h2>
+        <p>
+            This is a once-in-a-generation opportunity to become the critical infrastructure layer for a $12 trillion industry. The technology is proven. The market is ready. The time is now.
+        </p>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-content" style="max-width: 600px; text-align: center;">
+            <div style="margin-bottom: 2rem;">
+                <svg width="80" height="80" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(12, 12)">
+                        <rect x="0" y="0" width="24" height="24"
+                              transform="rotate(45 12 12)"
+                              fill="#62B6CB"
+                              stroke="none"/>
+                        <rect x="2" y="2" width="20" height="20"
+                              transform="rotate(45 12 12)"
+                              fill="none"
+                              stroke="#0D1B2A"
+                              stroke-width="3"/>
+                    </g>
+                </svg>
+            </div>
+
+            <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Amruth Surapaneni</h3>
+            <div style="color: var(--technical-cyan); font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Founder & CEO</div>
+
+            <div style="color: var(--text-medium); line-height: 1.8;">
+                <p>Georgia Tech MBA, Class of 2023</p>
+                <p>5+ Years Construction Experience</p>
+                <p style="margin-bottom: 2rem;">Building Codes & Permit Expert</p>
+
+                <div style="padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                    <a href="mailto:amruth@lexios.ai" style="color: var(--blueprint-navy); text-decoration: none; font-weight: 600; font-size: 1.125rem;">amruth@lexios.ai</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p style="margin-bottom: 0.5rem;">Confidential Investment Memorandum | November 2025</p>
+            <div class="footer-legal">
+                This document contains confidential and proprietary information. Distribution without written consent is prohibited.
+                <br>© 2025 Lexios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        const nav = document.getElementById('mainNav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
