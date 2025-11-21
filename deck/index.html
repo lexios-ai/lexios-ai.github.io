@@ -252,11 +252,15 @@
             height: 100%;
         }
 
-        .logo-container {
+         .logo-container {
             display: flex;
             align-items: center;
             gap: clamp(1rem, 2vw, 1.5rem);
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
+
 
         .logo-diamond {
             width: clamp(56px, 6vw, 72px);
@@ -772,7 +776,7 @@
     <div class="slide active">
         <div class="slide-content">
             <div class="hero-center">
-                <div class="logo-container">
+                <a href="https://lexios.ai" class="logo-container">
                     <svg class="logo-diamond" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g transform="translate(12, 12)">
                             <rect x="0" y="0" width="24" height="24" transform="rotate(45 12 12)" fill="#62B6CB" stroke="none"/>
@@ -780,7 +784,8 @@
                         </g>
                     </svg>
                     <div class="display">LEXIOS</div>
-                </div>
+                </a>
+
                 <div class="tagline">The Twilio for Construction Documents</div>
                 <div class="subtitle">Pure API infrastructure. Simple developer integrations. Massive market.</div>
                 <div class="grid grid-3" style="max-width: 1100px;">
